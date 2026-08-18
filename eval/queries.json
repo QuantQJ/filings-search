@@ -1,0 +1,170 @@
+[
+ {
+  "q": "Apple iPhone net sales fiscal 2025",
+  "ticker": "AAPL",
+  "item": "7",
+  "must": "iPhone"
+ },
+ {
+  "q": "Apple risks related to dependence on third-party component suppliers and manufacturing partners",
+  "ticker": "AAPL",
+  "item": "1A",
+  "must": "supplier"
+ },
+ {
+  "q": "Apple share repurchase program authorization",
+  "ticker": "AAPL",
+  "item": "5",
+  "must": "repurchase"
+ },
+ {
+  "q": "Apple cybersecurity risk management and governance",
+  "ticker": "AAPL",
+  "item": "1C",
+  "must": "cybersecurity"
+ },
+ {
+  "q": "Microsoft Azure and cloud revenue growth",
+  "ticker": "MSFT",
+  "item": "7",
+  "must": "Azure"
+ },
+ {
+  "q": "Microsoft risks from artificial intelligence development and deployment",
+  "ticker": "MSFT",
+  "item": "1A",
+  "must": "AI"
+ },
+ {
+  "q": "Microsoft segment reporting Productivity and Business Processes Intelligent Cloud More Personal Computing",
+  "ticker": "MSFT",
+  "item": "8",
+  "must": "Intelligent Cloud"
+ },
+ {
+  "q": "NVIDIA data center revenue and demand for AI accelerators",
+  "ticker": "NVDA",
+  "item": "7",
+  "must": "Data Center"
+ },
+ {
+  "q": "NVIDIA export controls on shipments to China",
+  "ticker": "NVDA",
+  "item": "1A",
+  "must": "export"
+ },
+ {
+  "q": "NVIDIA customer concentration significant customers percentage of revenue",
+  "ticker": "NVDA",
+  "item": null,
+  "must": "customer"
+ },
+ {
+  "q": "JPMorgan net interest income drivers",
+  "ticker": "JPM",
+  "item": null,
+  "must": "net interest income"
+ },
+ {
+  "q": "JPMorgan allowance for credit losses methodology",
+  "ticker": "JPM",
+  "item": null,
+  "must": "allowance"
+ },
+ {
+  "q": "JPMorgan legal proceedings and litigation reserves",
+  "ticker": "JPM",
+  "item": null,
+  "must": "litigation"
+ },
+ {
+  "q": "Exxon Mobil upstream production volumes oil-equivalent barrels per day",
+  "ticker": "XOM",
+  "item": null,
+  "must": "oil-equivalent"
+ },
+ {
+  "q": "Exxon Mobil risks from climate change regulation and energy transition",
+  "ticker": "XOM",
+  "item": "1A",
+  "must": "climate"
+ },
+ {
+  "q": "Exxon Mobil proved reserves",
+  "ticker": "XOM",
+  "item": null,
+  "must": "proved"
+ },
+ {
+  "q": "Walmart comparable sales growth U.S. stores",
+  "ticker": "WMT",
+  "item": "7",
+  "must": "comparable"
+ },
+ {
+  "q": "Walmart risks from tariffs and trade policy on merchandise costs",
+  "ticker": "WMT",
+  "item": "1A",
+  "must": "tariff"
+ },
+ {
+  "q": "Walmart number of stores and clubs properties",
+  "ticker": "WMT",
+  "item": "2",
+  "must": "stores"
+ },
+ {
+  "q": "Tesla automotive regulatory credits revenue",
+  "ticker": "TSLA",
+  "item": "7",
+  "must": "regulatory credit"
+ },
+ {
+  "q": "Tesla risks related to Elon Musk dependence on key personnel",
+  "ticker": "TSLA",
+  "item": "1A",
+  "must": "Musk"
+ },
+ {
+  "q": "Tesla Full Self-Driving Autopilot litigation and investigations",
+  "ticker": "TSLA",
+  "item": "3",
+  "must": "Autopilot"
+ },
+ {
+  "q": "Johnson & Johnson talc litigation",
+  "ticker": "JNJ",
+  "item": "8",
+  "must": "talc"
+ },
+ {
+  "q": "Johnson & Johnson pharmaceutical segment sales growth key products",
+  "ticker": "JNJ",
+  "item": "7",
+  "must": "sales"
+ },
+ {
+  "q": "Johnson & Johnson risks from patent expiration and biosimilar competition",
+  "ticker": "JNJ",
+  "item": "1A",
+  "must": "patent"
+ },
+ {
+  "q": "which company discusses export controls on advanced computing chips to China",
+  "ticker": "NVDA",
+  "item": null,
+  "must": "export"
+ },
+ {
+  "q": "which filing describes talc-related lawsuits",
+  "ticker": "JNJ",
+  "item": null,
+  "must": "talc"
+ },
+ {
+  "q": "regulatory credits sold to other automakers",
+  "ticker": "TSLA",
+  "item": null,
+  "must": "regulatory credit"
+ }
+]

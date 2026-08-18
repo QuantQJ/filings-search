@@ -1,0 +1,11 @@
+anthropic==0.122.0
+beautifulsoup4==4.15.0
+fastapi==0.141.1
+httpx==0.28.1
+lxml==6.1.1
+openai==3.2.0
+opensearch-py==3.2.0
+pydantic==2.13.4
+PyYAML==6.0.3
+tiktoken==0.14.0
+uvicorn==0.52.3

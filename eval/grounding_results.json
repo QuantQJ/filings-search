@@ -1,0 +1,2955 @@
+{
+  "summary": {
+    "n": 10,
+    "model": "claude-opus-5",
+    "judge_model": "claude-opus-5",
+    "numeric_grounded_rate": 1.0,
+    "judge_grounded_rate": 0.9,
+    "judge_partial_rate": 0.1,
+    "mean_supported_fraction": 0.968,
+    "avg_citations": 9.7,
+    "avg_tool_calls": 7.6,
+    "avg_seconds": 41.1,
+    "total_input_tokens": 563000,
+    "total_output_tokens": 23298,
+    "wall_seconds": 720.1
+  },
+  "runs": [
+    {
+      "question": "What were Apple's total net sales in fiscal 2025 and how did iPhone net sales change year over year?",
+      "answer": "Apple's total net sales in fiscal 2025 (year ended September 27, 2025) were $416,161 million, up 6% from $391,035 million in fiscal 2024 [c:64ec776926ccd2df] [c:e16739b8f771cece]. iPhone net sales were $209,586 million, a 4% increase from $201,183 million in fiscal 2024, which Apple attributed to higher net sales of Pro models [c:64ec776926ccd2df].\n\nFor context, iPhone remained roughly half of total revenue, while Services was the fastest-growing category at $109,158 million (+14%) and Mac grew 12% to $33,708 million; Wearables, Home and Accessories declined 4% to $35,686 million [c:64ec776926ccd2df]. Geographically, the iPhone gains helped drive growth in the Americas, Japan and Rest of Asia Pacific, whereas Greater China net sales fell 4% to $64,377 million primarily due to lower iPhone net sales [c:b528a726e1c30315].",
+      "citations": [
+        {
+          "chunk_id": "64ec776926ccd2df",
+          "ticker": "AAPL",
+          "company": "Apple Inc.",
+          "fiscal_year": 2025,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "snippet": "2025 Change 2024 Change 2023\niPhone $ 209,586 4 % $ 201,183 \u2014 % $ 200,583\nMac 33,708 12 % 29,984 2 % 29,357\niPad 28,023 5 % 26,694 (6) % 28,300\nWearables, Home and Accessories 35,686 (4) % 37,005 (7) % 39,845\nServices (1)\n109,158 14 % 96,169 13 % 85,200\nTotal net sales $ 416,161 6 % $ 391,035 2 % $ "
+        },
+        {
+          "chunk_id": "e16739b8f771cece",
+          "ticker": "AAPL",
+          "company": "Apple Inc.",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "snippet": "Apple Inc. | 2025 Form 10-K | 35\nThe following table shows disaggregated net sales, as well as the portion of total net sales that was previously deferred, for 2025, 2024 and 2023 (in millions):\n2025 2024 2023\niPhone\n$ 209,586 $ 201,183 $ 200,583\nMac\n33,708 29,984 29,357\niPad\n28,023 26,694 28,300\nWe"
+        },
+        {
+          "chunk_id": "b528a726e1c30315",
+          "ticker": "AAPL",
+          "company": "Apple Inc.",
+          "fiscal_year": 2025,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "snippet": "Segment Operating Performance\nThe following table shows net sales by reportable segment for 2025, 2024 and 2023 (dollars in millions):\n2025 Change 2024 Change 2023\nAmericas $ 178,353 7 % $ 167,045 3 % $ 162,560\nEurope 111,032 10 % 101,328 7 % 94,294\nGreater China 64,377 (4) % 66,952 (8) % 72,559\nJap"
+        }
+      ],
+      "numeric_grounded": true,
+      "ungrounded_figures": [],
+      "tool_calls": [
+        {
+          "tool": "resolve_company",
+          "input": {
+            "query": "Apple"
+          },
+          "chars": 461
+        },
+        {
+          "tool": "list_indexed_companies",
+          "input": {},
+          "chars": 698
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "total net sales iPhone net sales change year over year",
+            "ticker": "AAPL",
+            "item": "7",
+            "k": 8
+          },
+          "chars": 11926
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "net sales by category iPhone Mac iPad Services total net sales",
+            "ticker": "AAPL",
+            "item": "8",
+            "k": 8
+          },
+          "chars": 11066
+        }
+      ],
+      "usage": {
+        "input_tokens": 15783,
+        "output_tokens": 706
+      },
+      "seconds": 13.2,
+      "judge": {
+        "claims": [
+          {
+            "claim": "Apple's total net sales in fiscal 2025 (year ended September 27, 2025) were $416,161 million, up 6% from $391,035 million in fiscal 2024",
+            "supported": true,
+            "cited_ids": [
+              "64ec776926ccd2df",
+              "e16739b8f771cece"
+            ],
+            "note": "Table shows Total net sales $416,161, 6% change, 2024 $391,035; fiscal year end September 27, 2025 referenced in Item 8 chunk."
+          },
+          {
+            "claim": "iPhone net sales were $209,586 million, a 4% increase from $201,183 million in fiscal 2024",
+            "supported": true,
+            "cited_ids": [
+              "64ec776926ccd2df"
+            ],
+            "note": "Exact figures and 4% change in category table."
+          },
+          {
+            "claim": "Apple attributed the iPhone increase to higher net sales of Pro models",
+            "supported": true,
+            "cited_ids": [
+              "64ec776926ccd2df"
+            ],
+            "note": "'iPhone net sales increased during 2025 compared to 2024 due to higher net sales of Pro models.'"
+          },
+          {
+            "claim": "iPhone remained roughly half of total revenue",
+            "supported": true,
+            "cited_ids": [
+              "64ec776926ccd2df"
+            ],
+            "note": "Simple arithmetic from cited figures: 209,586/416,161 \u2248 50%."
+          },
+          {
+            "claim": "Services was the fastest-growing category at $109,158 million (+14%)",
+            "supported": true,
+            "cited_ids": [
+              "64ec776926ccd2df"
+            ],
+            "note": "Table: Services $109,158, 14%, highest growth among listed categories."
+          },
+          {
+            "claim": "Mac grew 12% to $33,708 million",
+            "supported": true,
+            "cited_ids": [
+              "64ec776926ccd2df"
+            ],
+            "note": "Matches table."
+          },
+          {
+            "claim": "Wearables, Home and Accessories declined 4% to $35,686 million",
+            "supported": true,
+            "cited_ids": [
+              "64ec776926ccd2df"
+            ],
+            "note": "Matches table."
+          },
+          {
+            "claim": "iPhone gains helped drive growth in the Americas, Japan and Rest of Asia Pacific",
+            "supported": true,
+            "cited_ids": [
+              "b528a726e1c30315"
+            ],
+            "note": "Segment discussion cites higher iPhone net sales in all three regions."
+          },
+          {
+            "claim": "Greater China net sales fell 4% to $64,377 million primarily due to lower iPhone net sales",
+            "supported": true,
+            "cited_ids": [
+              "b528a726e1c30315"
+            ],
+            "note": "Segment table and narrative match exactly."
+          }
+        ],
+        "answer_supported_fraction": 1.0,
+        "hallucinated_numbers": [],
+        "verdict": "grounded"
+      }
+    },
+    {
+      "question": "What does NVIDIA disclose about export controls affecting sales to China, and which products are affected?",
+      "answer": "NVIDIA's FY2026 10-K (fiscal year ended Jan 25, 2026) devotes substantial disclosure in both Item 1 and Item 1A to a \"series of shifting and expanding export control restrictions\" over the past three years that limit its ability to sell in China [c:23a79cb31379cf54][c:7843471f35b4eaae].\n\nTimeline and affected products:\n- August 2022: USG export restrictions/licensing requirements targeting China's (including Hong Kong and Macau) and Russia's semiconductor and supercomputing industries, specifically impacting the A100 and H100 integrated circuits and \"DGX or any other systems or boards which incorporate A100 or H100 integrated circuits\" [c:7843471f35b4eaae].\n- July 2023: an additional licensing requirement for a subset of A100 and H100 products destined for certain customers and regions, including some Middle East countries [c:7843471f35b4eaae].\n- October 2023: new/updated licensing requirements for China and Country Groups D:1, D:4, D:5 (e.g., Saudi Arabia, UAE, Vietnam; excluding Israel) covering products above certain performance thresholds, \"including, but not limited to, the A100, A800, H100, H800, L4, L40, L40S RTX 4090, GB200 NVL72, and B200\" [c:7843471f35b4eaae][c:23a79cb31379cf54].\n- April 2025: USG informed NVIDIA that a license is required to export the H20 into China; NVIDIA took a **$4.5 billion charge** in Q1 FY2026 for H20 excess inventory and purchase obligations as H20 demand diminished [c:a40b69d168dc58cd].\n- August 2025: licenses granted allowing shipment of certain H20 products to certain China-based customers; NVIDIA generated **approximately $60 million** in H20 revenue under them. USG officials expressed an expectation of receiving \"15% or more of the revenue generated from licensed sales,\" though no regulation codifying this was published [c:1dbc734d9da2d74f][c:c61dc9b023a73c67].\n- February 2026: a license was granted for \"small amounts of H200 products to specific China-based customers.\" No revenue has been generated under it, NVIDIA does not yet know whether imports into China will be allowed, and the license requires a U.S. inspection process before shipment \u2014 meaning H200s shipped under the program face a **25% tariff on importation into the United States**, which NVIDIA may be unable to pass to customers [c:1dbc734d9da2d74f][c:c61dc9b023a73c67].\n- Worldwide controls: the January 2025 AI Diffusion IFR would have imposed a worldwide licensing requirement on data center products \"such as our H200, GB200 and GB300\"; it was to be rescinded and replaced (May 2025), with the replacement rule's scope still uncertain, and the Senate-passed \"GAIN AI Act\" adding further risk [c:66933a06953dc547][c:bde53edfd7f34e3d].\n\nFinancial and competitive effects disclosed: gross margin fell to 71.1% in FY2026 from 75.0%, partly due to the $4.5 billion H20 charge; total inventory/purchase-obligation provisions were $7.2 billion in FY2026 including that charge [c:fffa166818cf0d78]. The charge also weighed on Compute & Networking segment operating income [c:49e827c578ad7a90]. NVIDIA says 31% of FY2026 revenue came from outside the U.S. and that \"the market in China, where our offerings are limited by export controls, is highly competitive\" [c:385f10e4416b80eb]. It warns the controls are complex \u2014 addressing total processing performance, \"performance density,\" and interconnect bandwidth [c:c61dc9b023a73c67] \u2014 that its competitive position \"has been harmed,\" that licenses may be temporary or carry burdensome installation/use or financial conditions, and that customers in China and the Middle East are being pushed toward alternatives from China-, Europe- and Israel-based suppliers [c:9d4bdd401b6124e4].\n\nSpillover risks: restrictions on data center GPUs may reduce demand for NVIDIA's networking products, and the USG may extend controls to high-speed network interconnects; controls may prompt \"design-out\" of U.S. semiconductors and depress demand beyond China (Europe, Latin America, Southeast Asia) [c:1afca433378ef81f]. Possible future license conditions include chip tracking and throttling mechanisms that could disable or impair GPUs [c:979b61b6d5e979f2].\n\nChinese retaliation/response: Chinese regulators have inquired about NVIDIA's China supply efforts and Mellanox commitments, and on September 15, 2025 China's antitrust regulators issued a preliminary finding that NVIDIA's compliance with U.S. export controls \u2014 which required offering degraded products to China \u2014 unfairly discriminated against Chinese customers [c:3e3b7fbc57bed20e]. Beijing has encouraged purchases from China-based competitors and discouraged buying, importing or using NVIDIA data center products, \"including any China-specific product designed to comply with U.S. export controls\" [c:61ad826f4a144bb1], and publicly questioned whether H20 has built-in vulnerabilities (which NVIDIA denied) [c:979b61b6d5e979f2].",
+      "citations": [
+        {
+          "chunk_id": "23a79cb31379cf54",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1",
+          "item_title": "Business",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "Over the past three years, we have been subject to a series of shifting and expanding export control restrictions, impacting our ability to serve customers outside the United States.\n9\nTable of Contents\nIn August 2022, the U.S. government, or USG, announced export restrictions and export licensing r"
+        },
+        {
+          "chunk_id": "7843471f35b4eaae",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "Over the past three years, we have been subject to a series of shifting and expanding export control restrictions, impacting our ability to serve customers outside the United States.\nIn August 2022, the USG announced export restrictions and export licensing requirements targeting China\u2019s semiconduct"
+        },
+        {
+          "chunk_id": "a40b69d168dc58cd",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "We continue to execute Data Center compute product introductions, bringing new advanced architectures on a one-year product cadence, including our Rubin platform. We began shipping production units of our new Blackwell Ultra platforms including GB300 in the second quarter of fiscal year 2026. The co"
+        },
+        {
+          "chunk_id": "1dbc734d9da2d74f",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "In August 2025, the USG granted licenses that would allow us to ship certain H20 products to certain China-based customers. We generated approximately $60 million in H20 revenue under those licenses. USG officials expressed an expectation that the USG will receive 15% or more of the revenue generate"
+        },
+        {
+          "chunk_id": "c61dc9b023a73c67",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1",
+          "item_title": "Business",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "In August 2025, the USG granted licenses that would allow us to ship certain H20 products to certain China-based customers. We generated approximately $60 million in H20 revenue under those licenses. USG officials expressed an expectation that the USG will receive 15% or more of the revenue generate"
+        },
+        {
+          "chunk_id": "66933a06953dc547",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "In addition to controls targeting D:1, D:4 and D:5 countries, the USG has also imposed worldwide export controls impacting our products, and may impose additional controls in the future.\nIn January 2025, the USG published the AI Diffusion IFR in the Federal Register. The IFR would have imposed a wor"
+        },
+        {
+          "chunk_id": "bde53edfd7f34e3d",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1",
+          "item_title": "Business",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "In addition to controls targeting D:1, D:4 and D:5 countries, the USG has also imposed worldwide export controls impacting our products, and may impose additional controls in the future.\nIn January 2025, the USG published the AI Diffusion IFR in the Federal Register. The IFR would have imposed a wor"
+        },
+        {
+          "chunk_id": "fffa166818cf0d78",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "Gross margins decreased to 71.1% in fiscal year 2026 from 75.0% in fiscal year 2025 as our business model transitioned from offering Hopper HGX systems to Blackwell full-scale datacenter solutions and a $4.5 billion charge associated with H20 excess inventory and purchase obligations in the first qu"
+        },
+        {
+          "chunk_id": "49e827c578ad7a90",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "Total $ 215,938 $ 130,497 $ 85,441 65 %\nOperating Income by Reportable Segments\nYear Ended\nJan 25, 2026 Jan 26, 2025 $\nChange %\nChange\n($ in millions)\nCompute & Networking\n$ 130,141 $ 82,875 $ 47,266 57 %\nGraphics 9,156 5,085 4,071 80 %\nTotal $ 139,297 $ 87,960 $ 51,337 58 %\nCompute & Networking rev"
+        },
+        {
+          "chunk_id": "385f10e4416b80eb",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "International sales and operations are a significant part of our business, which exposes us to risks that could harm our business.\nWe sell our products internationally, and we also have operations and conduct business internationally. Our semiconductor wafers are manufactured, assembled, tested and "
+        },
+        {
+          "chunk_id": "9d4bdd401b6124e4",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "Our competitive position has been harmed by export controls, and our competitive position and future results will be further harmed, over the long term, if the restrictions remain in place or are expanded in geographic, customer, or product scope, if customers purchase product from competitors, if c"
+        },
+        {
+          "chunk_id": "1afca433378ef81f",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "Export controls restricting our ability to sell data center GPUs may also negatively impact demand for our networking products used in servers containing our GPUs. The USG may also impose export controls on our networking products, such as high-speed network interconnects, to limit the ability of do"
+        },
+        {
+          "chunk_id": "979b61b6d5e979f2",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "For example, the USG already imposed license conditions that limit the ability of foreign firms to create and offer as a service large-scale GPU clusters, such as imposing license conditions on the use of products to be exported to certain countries, and may impose additional conditions such as requ"
+        },
+        {
+          "chunk_id": "3e3b7fbc57bed20e",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "Increasing use of economic sanctions and export controls has impacted and may in the future impact demand for our products or services, negatively impacting our business and financial results. Reduced demand due to export controls has and could in the future lead to excess inventory or cause us to i"
+        },
+        {
+          "chunk_id": "61ad826f4a144bb1",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "In addition to export controls, the USG may impose restrictions on the import and sale of products that incorporate technologies developed or manufactured in whole or in part in China. For example, the USG adopted \u201cConnected Vehicle\u201d restrictions on the import and sale of certain automotive products"
+        }
+      ],
+      "numeric_grounded": true,
+      "ungrounded_figures": [],
+      "tool_calls": [
+        {
+          "tool": "resolve_company",
+          "input": {
+            "query": "NVIDIA"
+          },
+          "chars": 64
+        },
+        {
+          "tool": "list_indexed_companies",
+          "input": {},
+          "chars": 698
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "export controls China licensing requirement data center compute GPUs",
+            "ticker": "NVDA",
+            "item": "1A",
+            "k": 8
+          },
+          "chars": 11667
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "export license requirement H20 A100 H100 China revenue impact",
+            "ticker": "NVDA",
+            "item": "7",
+            "k": 8
+          },
+          "chars": 11929
+        },
+        {
+          "tool": "expand_chunk",
+          "input": {
+            "chunk_id": "c:1dbc734d9da2d74f"
+          },
+          "chars": 12
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "China revenue as percentage of total revenue declined export restrictions Singapore Taiwan geographic",
+            "ticker": "NVDA",
+            "k": 6
+          },
+          "chars": 8802
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "In April 2025 the USG informed us that a license is required for exports of our H20 product",
+            "ticker": "NVDA",
+            "mode": "bm25",
+            "k": 8
+          },
+          "chars": 11757
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "revenue by geographic region China including Hong Kong Taiwan Singapore United States",
+            "ticker": "NVDA",
+            "item": "8",
+            "k": 6
+          },
+          "chars": 300
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "China Data Center compute revenue declined significantly percentage of total revenue export controls",
+            "ticker": "NVDA",
+            "item": "1A",
+            "k": 6
+          },
+          "chars": 8812
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "total processing performance performance density interconnect bandwidth thresholds ability to design compliant products",
+            "ticker": "NVDA",
+            "k": 6
+          },
+          "chars": 8791
+        }
+      ],
+      "usage": {
+        "input_tokens": 68027,
+        "output_tokens": 3604
+      },
+      "seconds": 59.1,
+      "judge": {
+        "claims": [
+          {
+            "claim": "NVIDIA's FY2026 10-K (fiscal year ended Jan 25, 2026) discloses in both Item 1 and Item 1A a 'series of shifting and expanding export control restrictions' over the past three years limiting its ability to sell in China",
+            "supported": true,
+            "cited_ids": [
+              "23a79cb31379cf54",
+              "7843471f35b4eaae"
+            ],
+            "note": "Identical language appears in both the Item 1 and Item 1A chunks; fiscal year end date corroborated by Item 7 tables."
+          },
+          {
+            "claim": "August 2022: USG export restrictions/licensing requirements targeting China's (incl. Hong Kong and Macau) and Russia's semiconductor and supercomputing industries, specifically impacting A100 and H100 ICs and DGX or other systems/boards incorporating them",
+            "supported": true,
+            "cited_ids": [
+              "7843471f35b4eaae"
+            ],
+            "note": "Verbatim match."
+          },
+          {
+            "claim": "July 2023: additional licensing requirement for a subset of A100 and H100 products destined for certain customers and regions, including some Middle East countries",
+            "supported": true,
+            "cited_ids": [
+              "7843471f35b4eaae"
+            ],
+            "note": "Verbatim match."
+          },
+          {
+            "claim": "October 2023: new/updated licensing requirements for China and Country Groups D:1, D:4, D:5 (e.g., Saudi Arabia, UAE, Vietnam; excluding Israel) for products above certain performance thresholds including A100, A800, H100, H800, L4, L40, L40S RTX 4090, GB200 NVL72, and B200",
+            "supported": true,
+            "cited_ids": [
+              "7843471f35b4eaae",
+              "23a79cb31379cf54"
+            ],
+            "note": "Verbatim match in both chunks."
+          },
+          {
+            "claim": "April 2025: USG informed NVIDIA a license is required to export H20 into China; NVIDIA took a $4.5 billion charge in Q1 FY2026 for H20 excess inventory and purchase obligations as demand diminished",
+            "supported": true,
+            "cited_ids": [
+              "a40b69d168dc58cd"
+            ],
+            "note": "Verbatim match; also in Item 1/1A chunks."
+          },
+          {
+            "claim": "August 2025: licenses granted to ship certain H20 products to certain China-based customers; approximately $60 million in H20 revenue generated; USG officials expressed expectation of receiving 15% or more of revenue from licensed sales, with no regulation codifying it",
+            "supported": true,
+            "cited_ids": [
+              "1dbc734d9da2d74f",
+              "c61dc9b023a73c67"
+            ],
+            "note": "Verbatim match."
+          },
+          {
+            "claim": "February 2026: license granted for small amounts of H200 products to specific China-based customers; no revenue generated; unknown whether imports into China will be allowed; U.S. inspection process required pre-shipment resulting in a 25% tariff on importation into the U.S., which NVIDIA may be unable to pass to customers",
+            "supported": true,
+            "cited_ids": [
+              "1dbc734d9da2d74f",
+              "c61dc9b023a73c67"
+            ],
+            "note": "Verbatim match including the 25% tariff and inability to pass along the tariff."
+          },
+          {
+            "claim": "January 2025 AI Diffusion IFR would have imposed a worldwide licensing requirement on data center products such as H200, GB200 and GB300; announced to be rescinded and replaced in May 2025 with uncertain scope; Senate-passed 'GAIN AI Act' adds further risk",
+            "supported": true,
+            "cited_ids": [
+              "66933a06953dc547",
+              "bde53edfd7f34e3d"
+            ],
+            "note": "Verbatim match; GAIN AI Act passed by Senate in NDAA in October 2025."
+          },
+          {
+            "claim": "Gross margin fell to 71.1% in FY2026 from 75.0%, partly due to the $4.5 billion H20 charge; inventory/purchase-obligation provisions totaled $7.2 billion in FY2026 including that charge",
+            "supported": true,
+            "cited_ids": [
+              "fffa166818cf0d78"
+            ],
+            "note": "Verbatim match."
+          },
+          {
+            "claim": "The $4.5 billion charge partially offset Compute & Networking segment operating income growth",
+            "supported": true,
+            "cited_ids": [
+              "49e827c578ad7a90"
+            ],
+            "note": "Chunk states segment operating income increase was partially offset by the $4.5 billion H20 charge."
+          },
+          {
+            "claim": "31% of FY2026 revenue came from sales outside the U.S., and the market in China, where offerings are limited by export controls, is highly competitive",
+            "supported": true,
+            "cited_ids": [
+              "385f10e4416b80eb"
+            ],
+            "note": "Verbatim match."
+          },
+          {
+            "claim": "Controls are complex, addressing total processing performance, 'performance density', and interconnect bandwidth",
+            "supported": true,
+            "cited_ids": [
+              "c61dc9b023a73c67"
+            ],
+            "note": "Supported; chunk also lists memory bandwidth (answer's list is a subset)."
+          },
+          {
+            "claim": "NVIDIA's competitive position 'has been harmed'; licenses may be temporary or impose burdensome installation/use or financial conditions; customers in China and the Middle East are encouraged to pursue alternatives from China-, Europe- and Israel-based suppliers",
+            "supported": true,
+            "cited_ids": [
+              "9d4bdd401b6124e4"
+            ],
+            "note": "Verbatim match."
+          },
+          {
+            "claim": "Restrictions on data center GPUs may reduce demand for networking products; USG may extend controls to high-speed network interconnects; controls may prompt 'design-out' of U.S. semiconductors and depress demand beyond China including Europe, Latin America, Southeast Asia",
+            "supported": true,
+            "cited_ids": [
+              "1afca433378ef81f"
+            ],
+            "note": "Verbatim match."
+          },
+          {
+            "claim": "Possible future license conditions include chip tracking and throttling mechanisms that could disable or impair GPUs",
+            "supported": true,
+            "cited_ids": [
+              "979b61b6d5e979f2"
+            ],
+            "note": "Verbatim match."
+          },
+          {
+            "claim": "Chinese regulators have inquired about NVIDIA's China supply efforts and Mellanox commitments; on September 15, 2025 China's antitrust regulators issued a preliminary finding that NVIDIA's compliance with U.S. export controls (requiring degraded products) unfairly discriminated against Chinese customers",
+            "supported": true,
+            "cited_ids": [
+              "3e3b7fbc57bed20e"
+            ],
+            "note": "Verbatim match."
+          },
+          {
+            "claim": "The Chinese government has encouraged purchases from China-based competitors and discouraged purchasing, importing or using NVIDIA data center products, including any China-specific product designed to comply with U.S. export controls",
+            "supported": true,
+            "cited_ids": [
+              "61ad826f4a144bb1"
+            ],
+            "note": "Verbatim match."
+          },
+          {
+            "claim": "China's government publicly questioned whether H20 has built-in vulnerabilities, which NVIDIA denied",
+            "supported": true,
+            "cited_ids": [
+              "979b61b6d5e979f2"
+            ],
+            "note": "Verbatim match."
+          }
+        ],
+        "answer_supported_fraction": 1.0,
+        "hallucinated_numbers": [],
+        "verdict": "grounded"
+      }
+    },
+    {
+      "question": "How much did Microsoft say Azure and other cloud services revenue grew, and what drove it?",
+      "answer": "In its FY2026 10-K (year ended June 30, 2026), Microsoft said Azure and other cloud services revenue grew 41%, \"driven by demand for services across the platform with continued growth across all workloads\" [c:aea60c3487f9be3d]. The same 41% figure appears in the MD&A highlights [c:3a0881a687323810].\n\nContext around that number:\n- Azure drove the Intelligent Cloud segment, whose revenue increased $31.5 billion or 30%; within it, server products and cloud services revenue increased $31.0 billion or 31% \"driven by Azure and other cloud services,\" while server products revenue rose only 1% as customers continued to shift to the cloud [c:aea60c3487f9be3d].\n- At the company level, revenue increased $50.1 billion or 18% \"driven by growth in Microsoft Cloud,\" with Intelligent Cloud revenue increasing \"driven by Azure\" [c:09fc7e3ca4f981d5]; total revenue was $331,839 million versus $281,724 million [c:09fc7e3ca4f981d5]. Revenue included a favorable foreign currency impact of 2% [c:42f2aaedf6bd10f6].\n- On the cost side, Microsoft Cloud gross margin percentage decreased to 66% \"driven by continued investments in AI infrastructure and growing AI product usage, offset in part by efficiency gains in Azure and Microsoft 365 Commercial cloud\" [c:42f2aaedf6bd10f6]. Intelligent Cloud operating income increased $12.4 billion or 28% [c:aea60c3487f9be3d].\n- Related demand indicator: commercial remaining performance obligation increased 84% to $678 billion [c:3a0881a687323810].",
+      "citations": [
+        {
+          "chunk_id": "aea60c3487f9be3d",
+          "ticker": "MSFT",
+          "company": "MICROSOFT CORP",
+          "fiscal_year": 2026,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+          "snippet": "Gross margin increased $16.6 billion or 17% driven by growth in Microsoft 365 Commercial cloud. Gross margin percentage increased slightly primarily driven by efficiency gains in Microsoft 365 Commercial cloud, offset in part by continued investments in AI infrastructure and growing AI product usage"
+        },
+        {
+          "chunk_id": "3a0881a687323810",
+          "ticker": "MSFT",
+          "company": "MICROSOFT CORP",
+          "fiscal_year": 2026,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+          "snippet": "Commercial remaining performance obligation increased 84% to $678 billion.\nMicrosoft 365 Commercial cloud revenue increased 17%.\nMicrosoft 365 Consumer cloud revenue increased 28%.\nLinkedIn revenue increased 11%.\nDynamics 365 revenue increased 18%.\nAzure and other cloud services revenue increased 41"
+        },
+        {
+          "chunk_id": "09fc7e3ca4f981d5",
+          "ticker": "MSFT",
+          "company": "MICROSOFT CORP",
+          "fiscal_year": 2026,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+          "snippet": "XBOX content and services revenue growth\nRevenue from XBOX content and services, comprising first- and third-party content (including games and in-game content), XBOX Game Pass and other subscriptions, XBOX Cloud Gaming, advertising, and other cloud services\nSearch advertising revenue (ex TAC) growt"
+        },
+        {
+          "chunk_id": "42f2aaedf6bd10f6",
+          "ticker": "MSFT",
+          "company": "MICROSOFT CORP",
+          "fiscal_year": 2026,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+          "snippet": "Microsoft Cloud gross margin percentage decreased to 66% driven by continued investments in AI infrastructure and growing AI product usage, offset in part by efficiency gains in Azure and Microsoft 365 Commercial cloud.\nOperating expenses increased $4.9 billion or 7% driven by continued investments "
+        }
+      ],
+      "numeric_grounded": true,
+      "ungrounded_figures": [],
+      "tool_calls": [
+        {
+          "tool": "resolve_company",
+          "input": {
+            "query": "Microsoft"
+          },
+          "chars": 67
+        },
+        {
+          "tool": "list_indexed_companies",
+          "input": {},
+          "chars": 698
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "Azure and other cloud services revenue increased",
+            "ticker": "MSFT",
+            "item": "7",
+            "mode": "hybrid",
+            "k": 8
+          },
+          "chars": 11926
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "Microsoft Cloud revenue growth Intelligent Cloud server products segment results",
+            "ticker": "MSFT",
+            "item": "7",
+            "mode": "hybrid",
+            "k": 8
+          },
+          "chars": 11926
+        }
+      ],
+      "usage": {
+        "input_tokens": 15037,
+        "output_tokens": 1022
+      },
+      "seconds": 16.6,
+      "judge": {
+        "claims": [
+          {
+            "claim": "Microsoft's FY2026 10-K covers the fiscal year ended June 30, 2026",
+            "supported": true,
+            "cited_ids": [
+              "aea60c3487f9be3d",
+              "3a0881a687323810"
+            ],
+            "note": "Chunks are labeled MSFT FY2026 Item 7 and compare fiscal 2026 with fiscal 2025; the specific June 30 year-end date is not stated in the chunks but is consistent framing."
+          },
+          {
+            "claim": "Azure and other cloud services revenue grew 41%, driven by demand for services across the platform with continued growth across all workloads",
+            "supported": true,
+            "cited_ids": [
+              "aea60c3487f9be3d"
+            ],
+            "note": "Verbatim in chunk: 'Azure and other cloud services revenue grew 41% driven by demand for services across the platform with continued growth across all workloads.'"
+          },
+          {
+            "claim": "The same 41% figure appears in the MD&A highlights",
+            "supported": true,
+            "cited_ids": [
+              "3a0881a687323810"
+            ],
+            "note": "Highlights list states 'Azure and other cloud services revenue increased 41%.'"
+          },
+          {
+            "claim": "Intelligent Cloud segment revenue increased $31.5 billion or 30%",
+            "supported": true,
+            "cited_ids": [
+              "aea60c3487f9be3d"
+            ],
+            "note": "Stated directly; also consistent with segment table ($137,791M vs $106,265M, 30%)."
+          },
+          {
+            "claim": "Server products and cloud services revenue increased $31.0 billion or 31%, driven by Azure and other cloud services",
+            "supported": true,
+            "cited_ids": [
+              "aea60c3487f9be3d"
+            ],
+            "note": "Exact match in chunk."
+          },
+          {
+            "claim": "Server products revenue rose only 1% as customers continued to shift to the cloud",
+            "supported": true,
+            "cited_ids": [
+              "aea60c3487f9be3d"
+            ],
+            "note": "Chunk: server products revenue increased 1%, driven by multi-cloud license purchases, offset in part by continued customer shift to cloud."
+          },
+          {
+            "claim": "Company-level revenue increased $50.1 billion or 18%, driven by growth in Microsoft Cloud, with Intelligent Cloud revenue increasing driven by Azure",
+            "supported": true,
+            "cited_ids": [
+              "09fc7e3ca4f981d5"
+            ],
+            "note": "Verbatim in chunk."
+          },
+          {
+            "claim": "Total revenue was $331,839 million versus $281,724 million",
+            "supported": true,
+            "cited_ids": [
+              "09fc7e3ca4f981d5"
+            ],
+            "note": "Summary results table matches."
+          },
+          {
+            "claim": "Revenue included a favorable foreign currency impact of 2%",
+            "supported": true,
+            "cited_ids": [
+              "42f2aaedf6bd10f6"
+            ],
+            "note": "Chunk: 'Revenue and operating income both included a favorable foreign currency impact of 2%.'"
+          },
+          {
+            "claim": "Microsoft Cloud gross margin percentage decreased to 66%, driven by continued investments in AI infrastructure and growing AI product usage, offset in part by efficiency gains in Azure and Microsoft 365 Commercial cloud",
+            "supported": true,
+            "cited_ids": [
+              "42f2aaedf6bd10f6",
+              "09fc7e3ca4f981d5"
+            ],
+            "note": "Verbatim in both chunks."
+          },
+          {
+            "claim": "Intelligent Cloud operating income increased $12.4 billion or 28%",
+            "supported": true,
+            "cited_ids": [
+              "aea60c3487f9be3d"
+            ],
+            "note": "Stated in Intelligent Cloud section; consistent with table ($56,972M vs $44,589M, 28%)."
+          },
+          {
+            "claim": "Commercial remaining performance obligation increased 84% to $678 billion",
+            "supported": true,
+            "cited_ids": [
+              "3a0881a687323810"
+            ],
+            "note": "Verbatim in chunk."
+          }
+        ],
+        "answer_supported_fraction": 1.0,
+        "hallucinated_numbers": [],
+        "verdict": "grounded"
+      }
+    },
+    {
+      "question": "What are JPMorgan's main drivers of net interest income according to its MD&A?",
+      "answer": "In its FY2025 10-K MD&A, JPMorgan attributes NII of $95.4 billion (up 3%) to four positive drivers and two offsets: higher Markets net interest income, higher revolving balances in Card Services, higher wholesale deposit balances, and the impact of investment securities activity \u2014 \"largely offset by deposit margin compression and the impact of lower rates\" [c:dd36a71bf1d6b578][c:26b4f4586179ddcb].\n\nThe volume/rate mechanics are quantified alongside: average interest-earning assets of $3.8 trillion, up $297 billion, with the asset yield at 5.05%, down 45 bps; net yield on an FTE basis of 2.50%, down 13 bps, and net yield excluding Markets of 3.75%, down 9 bps [c:26b4f4586179ddcb]. Because Markets NII largely has offsets in principal transactions revenue, management separately tracks NII excluding Markets \u2014 $92,591 million in 2025 vs. $92,419 million in 2024 (essentially flat) \u2014 as the measure of \"the Firm's lending, investing (including asset-liability management) and deposit-raising activities\" apart from Markets volatility [c:e916987da0871d37][c:9f26a235819c9f3f][c:831b86359a6e1830].\n\nTwo further MD&A sections explain the underlying drivers. On funding/transfer pricing, lower average rates in 2025 reduced both the cost of funding assets and the funding benefit on liabilities, and \"the FTP benefit for deposits generally decreased more than the decrease in rates paid to deposit holders during the year,\" i.e., the source of the deposit margin compression [c:3f5a492d748fa09a]. In market risk management, structural interest rate risk \u2014 and therefore NII \u2014 is driven by timing differences in maturity/repricing of assets, liabilities and off-balance-sheet instruments, differences in the amounts repricing at the same time, differences in how short- vs. long-term rates move (yield-curve slope), and changes in effective maturity as rates change [c:9c5a25876925bb89]. Deposit forecasts and deposit betas (pricing sensitivity of deposits) are called out as key assumptions in the earnings-at-risk baseline, with deposit balances influenced by Federal Reserve actions, monetary conditions and competition for deposits [c:93de59dfab579aac].\n\nDeposit balance drivers themselves: average deposits rose on CIB inflows from Payments and Securities Services client activity and AWM growth including higher-yielding product offerings, partly offset by a CCB decline from increased customer spending [c:f01e5ec0de31407e].\n\nLooking forward, management expects 2026 net interest income of approximately $103 billion and NII excluding Markets of approximately $95 billion, \"market dependent\" [c:4cf11126e238899a].",
+      "citations": [
+        {
+          "chunk_id": "dd36a71bf1d6b578",
+          "ticker": "JPM",
+          "company": "JPMORGAN CHASE & CO",
+          "fiscal_year": 2025,
+          "item": "15",
+          "item_title": "Exhibit",
+          "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+          "snippet": "(d) Markets consists of CIB's Fixed Income Markets and Equity Markets businesses.The Firm assesses the performance of its Markets business on a total net revenue basis, as revenues in NII generally have offsets across other revenue lines, primarily Principal transactions revenue.\nApple Card transact"
+        },
+        {
+          "chunk_id": "26b4f4586179ddcb",
+          "ticker": "JPM",
+          "company": "JPMORGAN CHASE & CO",
+          "fiscal_year": 2025,
+          "item": "15",
+          "item_title": "Exhibit",
+          "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+          "snippet": "Net interest income increased driven by higher Markets net interest income, higher revolving balances in Card Services, higher wholesale deposit balances, and the impact of investment securities activity. These factors were largely offset by deposit margin compression and the impact of lower rates.\n"
+        },
+        {
+          "chunk_id": "e916987da0871d37",
+          "ticker": "JPM",
+          "company": "JPMORGAN CHASE & CO",
+          "fiscal_year": 2025,
+          "item": "15",
+          "item_title": "Exhibit",
+          "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+          "snippet": "Net income $ 57,048 NA $ 57,048 $ 58,471 NA $ 58,471 $ 49,552 NA $ 49,552\nOverhead ratio 52 % NM 52 % 52 %\nNM 51 % 55 % NM 54 %\n(a) For other income, recognized in CIB, and for net interest income, predominantly recognized in CIB and Corporate.\n(b) Effective January 1, 2024, the Firm adopted updates"
+        },
+        {
+          "chunk_id": "9f26a235819c9f3f",
+          "ticker": "JPM",
+          "company": "JPMORGAN CHASE & CO",
+          "fiscal_year": 2025,
+          "item": "15",
+          "item_title": "Exhibit",
+          "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+          "snippet": "3,277 641 (294)\nNet interest income excluding Markets $ 92,591 $ 92,419 $ 90,041\nAverage interest-earning assets (a)\n$ 3,834,359 $ 3,537,567 $ 3,325,708\nLess: Average Markets interest-earning assets (b)\n1,363,174 1,128,153 985,777\nAverage interest-earning assets excluding Markets $ 2,471,185 $ 2,409"
+        },
+        {
+          "chunk_id": "831b86359a6e1830",
+          "ticker": "JPM",
+          "company": "JPMORGAN CHASE & CO",
+          "fiscal_year": 2025,
+          "item": "15",
+          "item_title": "Exhibit",
+          "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+          "snippet": "Provision for credit losses 14,212 10,678 33\nNet income 57,048 58,471 (2)\nDiluted earnings per share 20.02 19.75 1\nSelected ratios and metrics\nReturn on common equity 17 % 18 %\nReturn on tangible common equity\n20 22\nBook value per share $ 126.99 $ 116.07 9\nTangible book value per share 107.56 97.3 1"
+        },
+        {
+          "chunk_id": "3f5a492d748fa09a",
+          "ticker": "JPM",
+          "company": "JPMORGAN CHASE & CO",
+          "fiscal_year": 2025,
+          "item": "15",
+          "item_title": "Exhibit",
+          "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+          "snippet": "JPMorgan Chase & Co./2025 Form 10-K\nFunds transfer pricing\nFunds transfer pricing (\u201cFTP\u201d) is the process by which the Firm allocates interest income and expense to the LOBs and Other Corporate and transfers the primary interest rate risk and liquidity risk to Treasury and CIO.\nThe funds transfer pri"
+        },
+        {
+          "chunk_id": "9c5a25876925bb89",
+          "ticker": "JPM",
+          "company": "JPMORGAN CHASE & CO",
+          "fiscal_year": 2025,
+          "item": "15",
+          "item_title": "Exhibit",
+          "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+          "snippet": "Key risk drivers and risk management process\nStructural interest rate risk can arise due to a variety of factors, including:\nDifferences in timing among the maturity or repricing of assets, liabilities and off-balance sheet instruments\nDifferences in the amounts of assets, liabilities and off-balanc"
+        },
+        {
+          "chunk_id": "93de59dfab579aac",
+          "ticker": "JPM",
+          "company": "JPMORGAN CHASE & CO",
+          "fiscal_year": 2025,
+          "item": "15",
+          "item_title": "Exhibit",
+          "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+          "snippet": "The impact on exposures as a result of instantaneous changes in interest rates from baseline rates.\nForecasted balance sheet, as well as modeled prepayment and reinvestment behavior, but excluding assumptions about actions that could be taken by the Firm or its clients and customers in response to i"
+        },
+        {
+          "chunk_id": "f01e5ec0de31407e",
+          "ticker": "JPM",
+          "company": "JPMORGAN CHASE & CO",
+          "fiscal_year": 2025,
+          "item": "15",
+          "item_title": "Exhibit",
+          "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+          "snippet": "Average deposits increased for the year ended December 31, 2025 compared to the year ended December 31, 2024, reflecting the net impact of:\nan increase in CIB due to net inflows related to client-driven activities in Payments and Securities Services, partially offset by net maturities of structured "
+        },
+        {
+          "chunk_id": "4cf11126e238899a",
+          "ticker": "JPM",
+          "company": "JPMORGAN CHASE & CO",
+          "fiscal_year": 2025,
+          "item": "15",
+          "item_title": "Exhibit",
+          "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+          "snippet": "Management expects net interest income to be approximately $103 billion and net interest income excluding Markets to be approximately $95 billion, market dependent.\nManagement expects adjusted expense to be approximately $105 billion, market dependent.\nManagement expects the net charge-off rate in C"
+        }
+      ],
+      "numeric_grounded": true,
+      "ungrounded_figures": [],
+      "tool_calls": [
+        {
+          "tool": "list_indexed_companies",
+          "input": {},
+          "chars": 698
+        },
+        {
+          "tool": "resolve_company",
+          "input": {
+            "query": "JPMorgan"
+          },
+          "chars": 585
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "net interest income increase driven by higher rates loan growth",
+            "ticker": "JPM",
+            "item": "7",
+            "k": 10
+          },
+          "chars": 481
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "net interest income drivers deposit margin securities yields Markets NII",
+            "ticker": "JPM",
+            "k": 10
+          },
+          "chars": 14632
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "Outlook 2026 NII excluding Markets expectations",
+            "ticker": "JPM",
+            "k": 6
+          },
+          "chars": 8777
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "CCB net interest income deposit margin compression higher revolving balances Card Services",
+            "ticker": "JPM",
+            "k": 8
+          },
+          "chars": 11703
+        },
+        {
+          "tool": "expand_chunk",
+          "input": {
+            "chunk_id": "c:1e5738b37164cead"
+          },
+          "chars": 12
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "structural interest rate risk arises from balance sheet repricing mismatch deposits",
+            "ticker": "JPM",
+            "k": 6
+          },
+          "chars": 8743
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "Firm expects NII excluding Markets to be approximately billion in 2026",
+            "ticker": "JPM",
+            "mode": "bm25",
+            "k": 6
+          },
+          "chars": 8777
+        }
+      ],
+      "usage": {
+        "input_tokens": 71438,
+        "output_tokens": 2072
+      },
+      "seconds": 40.0,
+      "judge": {
+        "claims": [
+          {
+            "claim": "NII was $95.4 billion, up 3%, driven by higher Markets net interest income, higher revolving balances in Card Services, higher wholesale deposit balances, and the impact of investment securities activity, largely offset by deposit margin compression and the impact of lower rates.",
+            "supported": true,
+            "cited_ids": [
+              "dd36a71bf1d6b578",
+              "26b4f4586179ddcb"
+            ],
+            "note": "Verbatim match in both chunks, including the $95.4B/up 3% figure and the four drivers plus two offsets."
+          },
+          {
+            "claim": "Average interest-earning assets of $3.8 trillion, up $297 billion, with asset yield of 5.05%, down 45 bps.",
+            "supported": true,
+            "cited_ids": [
+              "26b4f4586179ddcb"
+            ],
+            "note": "Exact figures stated in chunk."
+          },
+          {
+            "claim": "Net yield on an FTE basis of 2.50%, down 13 bps, and net yield excluding Markets of 3.75%, down 9 bps.",
+            "supported": true,
+            "cited_ids": [
+              "26b4f4586179ddcb"
+            ],
+            "note": "Exact figures stated in chunk."
+          },
+          {
+            "claim": "Markets NII generally has offsets in principal transactions revenue, so management separately reviews NII excluding Markets to assess the Firm's lending, investing (including asset-liability management) and deposit-raising activities apart from Markets volatility.",
+            "supported": true,
+            "cited_ids": [
+              "dd36a71bf1d6b578",
+              "e916987da0871d37",
+              "831b86359a6e1830"
+            ],
+            "note": "Both the offsets-in-principal-transactions statement and the quoted purpose language appear in cited chunks."
+          },
+          {
+            "claim": "NII excluding Markets was $92,591 million in 2025 vs. $92,419 million in 2024 (essentially flat).",
+            "supported": true,
+            "cited_ids": [
+              "e916987da0871d37",
+              "9f26a235819c9f3f",
+              "831b86359a6e1830"
+            ],
+            "note": "Table values match exactly; 831b... shows change of '\u2014' (flat)."
+          },
+          {
+            "claim": "Lower average rates in 2025 reduced both the cost of funding assets and the funding benefit on liabilities, and the FTP benefit for deposits generally decreased more than the decrease in rates paid to deposit holders, resulting in deposit margin compression.",
+            "supported": true,
+            "cited_ids": [
+              "3f5a492d748fa09a"
+            ],
+            "note": "Directly quoted/paraphrased from the funds transfer pricing section."
+          },
+          {
+            "claim": "Structural interest rate risk is driven by timing differences in maturity/repricing of assets, liabilities and off-balance-sheet instruments, differences in amounts repricing at the same time, differences in short- vs. long-term rate moves (yield-curve slope), and changes in effective maturity as rates change.",
+            "supported": true,
+            "cited_ids": [
+              "9c5a25876925bb89"
+            ],
+            "note": "Four listed key risk drivers match the chunk."
+          },
+          {
+            "claim": "Deposit forecasts and deposit betas (pricing sensitivity of deposits) are key assumptions in the earnings-at-risk baseline, and deposit balances may be influenced by Federal Reserve actions, broader monetary conditions and competition for deposits.",
+            "supported": true,
+            "cited_ids": [
+              "93de59dfab579aac"
+            ],
+            "note": "Explicitly stated in chunk."
+          },
+          {
+            "claim": "Average deposits rose on CIB inflows from Payments and Securities Services client activity and AWM growth including higher-yielding product offerings, partly offset by a CCB decline driven by increased customer spending.",
+            "supported": true,
+            "cited_ids": [
+              "f01e5ec0de31407e"
+            ],
+            "note": "Matches the average deposit drivers listed in chunk."
+          },
+          {
+            "claim": "Management expects 2026 net interest income of approximately $103 billion and NII excluding Markets of approximately $95 billion, market dependent.",
+            "supported": true,
+            "cited_ids": [
+              "4cf11126e238899a"
+            ],
+            "note": "Chunk states these outlook figures and the 'market dependent' qualifier; forward-year attribution is consistent with the FY2025 10-K outlook section."
+          }
+        ],
+        "answer_supported_fraction": 1.0,
+        "hallucinated_numbers": [],
+        "verdict": "grounded"
+      }
+    },
+    {
+      "question": "What is Walmart's disclosed exposure to tariffs and how does it say it will respond?",
+      "answer": "**Answer in brief:** In its FY2026 10-K (fiscal year ended January 31, 2026), Walmart frames tariffs as a real but bounded cost exposure \u2014 \"less than one third of what we sell in the U.S. is imported, with most of our imports coming from China, Mexico, Vietnam, India and Canada\" \u2014 and says it responds primarily through pricing and merchandising levers, chiefly absorbing cost increases rather than passing them to customers, while acknowledging it will pass costs through \"when necessary.\" It does not quantify a dollar tariff impact.\n\n**Exposure as disclosed.** In MD&A's \"Recent Developments, Macroeconomic Conditions and Potential Impacts,\" Walmart lists \"tariffs and trade restrictions\" first among factors creating \"continued uncertainty in our business and the global economy,\" alongside inflation, currency, consumer confidence, employment trends, fuel prices and supply chain pressures, and says it \"operate[s] in a highly dynamic tariff environment\" [c:ec93a5d0f1241a8a]. In Risk Factors, the exposure is sized by segment mix rather than tariff dollars: Walmart U.S. and Sam's Club U.S. generated approximately 82% of consolidated net sales in fiscal 2026, and \"a significant portion of the general merchandise we sell in our U.S. stores and clubs is manufactured in other countries\" [c:88f48a0db68810ff]. Notably, the company states the effect is not hypothetical \u2014 changes in tax and trade policies including tariffs \"can impact, and have impacted, our business and profit margins, including through increases in the costs at which we purchase merchandise and the prices at which we sell such merchandise to our customers, and the costs we incur in pursuing our strategic initiatives,\" and it adds that it \"experienced the impacts noted above\" during the year (the passage is truncated in the indexed text at that point) [c:88f48a0db68810ff]. Walmart also flags tariffs on the demand side, not just the cost side: import restrictions, tariffs and trade barriers \"could adversely affect consumer demand,\" \"change the mix of products we sell... with a lower average gross margin,\" cause a slowdown in discretionary purchases, and \"result in slower inventory turnover and greater markdowns of inventory\" [c:5bc62d9c54cb99c2]. Trade policy is additionally cited as a supplier-relationship risk [c:24f7de25c6268314] and, for the international segment (~19% of consolidated net sales), as \"trade protection measures\" risk in markets that themselves source goods cross-border [c:07e1d4fce8c1e43a], with the caveat that changing operations to comply with new trade restrictions \"can be expensive, time-consuming and disruptive,\" can be announced \"with little or no advance notice,\" and that \"we may not be able to effectively mitigate all adverse impacts from such measures\" [c:e473e6698fb92dce].\n\n**Stated response.** The playbook is pricing plus merchandising. Pricing strategies \"include, but are not limited to: absorbing cost increases instead of passing those cost increases on to our customers and members; reducing prices in certain merchandise categories; focusing on opening price points for certain food categories; and when necessary, passing cost increases on to our customers and members\"; merchandising strategies begin with \"working with our supplier...\" \u2014 the indexed text is cut off mid-sentence there, so the full list of merchandising actions (e.g., sourcing shifts) is not retrievable from the chunks available to me [c:ec93a5d0f1241a8a]. The risk factor adds only a conditional framing rather than specific mitigation steps: \"If we are unable to successfully manage the various impacts that changes in these tax and trade policies have on our business, our results of operations and financial performance could be impacted\" [c:88f48a0db68810ff].\n\n**Evidence of how it played out.** Consistent with absorbing rather than passing through costs, Walmart's consolidated gross profit rate rose 8 basis points in fiscal 2026 to 24.2%, \"primarily driven by the Walmart U.S. segment, due to disciplined inventory management, as well as growth in higher margin businesses globally,\" partially offset by mix shifts into lower-margin categories \u2014 tariffs are not named as a driver of the gross margin variance [c:eb1495f3aa0fffdf]. Operating income was $29,825 million, or 4.2% of net sales, down 13 basis points, with the operating expense increase attributed mainly to ~$0.9 billion of higher self-insured general liability claims expense, again not tariffs [c:eb1495f3aa0fffdf], [c:154ce59dc2db4125].\n\nOne caveat for modeling purposes: nowhere in the retrieved disclosures does Walmart quantify tariff cost in dollars or basis points, disclose tariff expense as a separate line, or give a country-level import percentage beyond the \"less than one third\" U.S.-imported figure and the five named source countries [c:ec93a5d0f1241a8a].",
+      "citations": [
+        {
+          "chunk_id": "ec93a5d0f1241a8a",
+          "ticker": "WMT",
+          "company": "Walmart Inc.",
+          "fiscal_year": 2026,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "snippet": "Recent Developments, Macroeconomic Conditions and Potential Impacts\nWe expect continued uncertainty in our business and the global economy due to the following factors: tariffs and trade restrictions; inflationary trends; fluctuations in global currencies; swings in macroeconomic conditions and thei"
+        },
+        {
+          "chunk_id": "88f48a0db68810ff",
+          "ticker": "WMT",
+          "company": "Walmart Inc.",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "snippet": "22\ninternal policies, could subject us to fines and penalties and adversely affect our business or financial performance and our reputation.\nChanges in tax and trade laws, regulations and interpretations could materially adversely affect our financial performance.\nIn fiscal 2026, our Walmart U.S. an"
+        },
+        {
+          "chunk_id": "5bc62d9c54cb99c2",
+          "ticker": "WMT",
+          "company": "Walmart Inc.",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "snippet": "14\nconsumer credit, higher consumer debt levels, changes in consumer spending and shopping patterns, fluctuations in currency exchange rates, higher tax rates, imposition of new taxes or other changes in tax laws, changes in healthcare laws, other regulatory changes, the imposition of export and imp"
+        },
+        {
+          "chunk_id": "24f7de25c6268314",
+          "ticker": "WMT",
+          "company": "Walmart Inc.",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "snippet": "We are exposed to a number of risks in our relationships with our suppliers, many of which are beyond our control, and which could adversely impact our operations and financial performance. These risks include political and economic instability, as well as other impactful events and circumstances in"
+        },
+        {
+          "chunk_id": "07e1d4fce8c1e43a",
+          "ticker": "WMT",
+          "company": "Walmart Inc.",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "snippet": "Our international operations subject us to legislative, judicial, accounting, legal, regulatory, tax, political and economic risks and conditions specific to the countries or regions in which we operate, which could materially adversely affect our business or financial performance.\nIn addition to ou"
+        },
+        {
+          "chunk_id": "e473e6698fb92dce",
+          "ticker": "WMT",
+          "company": "Walmart Inc.",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "snippet": "Changing our operations in accordance with new or changed restrictions on international trade or newly imposed sanctions can be expensive, time-consuming and disruptive to our operations. Such restrictions can be announced with little or no advance notice and we may not be able to effectively mitiga"
+        },
+        {
+          "chunk_id": "eb1495f3aa0fffdf",
+          "ticker": "WMT",
+          "company": "Walmart Inc.",
+          "fiscal_year": 2026,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "snippet": "Gross profit (1) as a percentage of net sales\n24.2 % 24.1 %\nOperating expenses as a percentage of net sales\n20.9 % 20.7 %\nOperating income $ 29,825 $ 29,348\nOperating income as a percentage of net sales 4.2 % 4.4 %\n(1) Gross profit defined as net sales less cost of sales.\nGross profit as a percentag"
+        },
+        {
+          "chunk_id": "154ce59dc2db4125",
+          "ticker": "WMT",
+          "company": "Walmart Inc.",
+          "fiscal_year": 2026,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "snippet": "Operating income as a percentage of net sales decreased 13 basis points for fiscal 2026 and increased 15 basis points for fiscal 2025, respectively, primarily due to the factors described above and strong growth in membership income globally.\nReturns\nAs we execute our financial framework, we believe"
+        }
+      ],
+      "numeric_grounded": true,
+      "ungrounded_figures": [],
+      "tool_calls": [
+        {
+          "tool": "list_indexed_companies",
+          "input": {},
+          "chars": 698
+        },
+        {
+          "tool": "resolve_company",
+          "input": {
+            "query": "Walmart"
+          },
+          "chars": 64
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "tariffs on imported merchandise cost of goods trade policy",
+            "ticker": "WMT",
+            "item": "1A",
+            "k": 8
+          },
+          "chars": 11739
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "tariffs impact on gross margin mitigation actions",
+            "ticker": "WMT",
+            "item": "7",
+            "k": 8
+          },
+          "chars": 11922
+        },
+        {
+          "tool": "expand_chunk",
+          "input": {
+            "chunk_id": "c:ec93a5d0f1241a8a"
+          },
+          "chars": 12
+        },
+        {
+          "tool": "expand_chunk",
+          "input": {
+            "chunk_id": "c:88f48a0db68810ff"
+          },
+          "chars": 12
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "pricing strategies absorbing cost increases working with suppliers sourcing alternative countries",
+            "ticker": "WMT",
+            "mode": "bm25",
+            "k": 8
+          },
+          "chars": 11746
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "We experienced the impacts noted above during fiscal 2026 tariffs unable to mitigate",
+            "ticker": "WMT",
+            "mode": "bm25",
+            "k": 8
+          },
+          "chars": 10656
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "merchandising strategies working with our suppliers sourcing negotiating private brands inventory management",
+            "ticker": "WMT",
+            "item": "7",
+            "mode": "knn",
+            "k": 6
+          },
+          "chars": 8940
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "tariffs increased costs of merchandise fiscal 2026 expect these impacts to continue",
+            "ticker": "WMT",
+            "item": "1A",
+            "mode": "knn",
+            "k": 6
+          },
+          "chars": 8804
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "trade policies tariffs could increase our cost of goods sold and adversely affect suppliers ability to source",
+            "ticker": "WMT",
+            "mode": "bm25",
+            "item": "1A",
+            "k": 10
+          },
+          "chars": 14674
+        }
+      ],
+      "usage": {
+        "input_tokens": 94867,
+        "output_tokens": 3337
+      },
+      "seconds": 57.8,
+      "judge": {
+        "claims": [
+          {
+            "claim": "In FY2026 10-K MD&A, Walmart says 'less than one third of what we sell in the U.S. is imported, with most of our imports coming from China, Mexico, Vietnam, India and Canada.'",
+            "supported": true,
+            "cited_ids": [
+              "ec93a5d0f1241a8a"
+            ],
+            "note": "Verbatim in the Item 7 chunk."
+          },
+          {
+            "claim": "Walmart lists 'tariffs and trade restrictions' first among factors creating 'continued uncertainty in our business and the global economy,' alongside inflation, currency, consumer confidence, employment trends, fuel prices and supply chain pressures, and says it operates in a 'highly dynamic tariff environment.'",
+            "supported": true,
+            "cited_ids": [
+              "ec93a5d0f1241a8a"
+            ],
+            "note": "Matches chunk text and ordering."
+          },
+          {
+            "claim": "Walmart U.S. and Sam's Club U.S. generated approximately 82% of consolidated net sales in fiscal 2026, and a significant portion of general merchandise sold in U.S. stores/clubs is manufactured in other countries.",
+            "supported": true,
+            "cited_ids": [
+              "88f48a0db68810ff"
+            ],
+            "note": "Directly stated in the risk factor."
+          },
+          {
+            "claim": "Changes in tax and trade policies including tariffs 'can impact, and have impacted, our business and profit margins,' including through higher purchase costs, selling prices, and strategic-initiative costs, and Walmart adds that it 'experienced the impacts noted above' during the year.",
+            "supported": true,
+            "cited_ids": [
+              "88f48a0db68810ff"
+            ],
+            "note": "Quotes are accurate to the chunk."
+          },
+          {
+            "claim": "The risk-factor passage is truncated in the indexed text at the point after 'experienced the impacts noted above.'",
+            "supported": false,
+            "cited_ids": [
+              "88f48a0db68810ff"
+            ],
+            "note": "Contradicted: the chunk continues in full \u2014 'during fiscal 2026 as a result of incremental import tariffs. We expect the dynamic tariff environment to continue, including in fiscal 2027... which could be material.' Not truncated; material content omitted."
+          },
+          {
+            "claim": "Walmart flags demand-side tariff effects: import restrictions/tariffs/trade barriers could adversely affect consumer demand, change product mix toward lower average gross margin, cause a slowdown in discretionary purchases, and result in slower inventory turnover and greater markdowns.",
+            "supported": true,
+            "cited_ids": [
+              "5bc62d9c54cb99c2"
+            ],
+            "note": "All elements appear in the chunk."
+          },
+          {
+            "claim": "Trade policy is cited as a supplier-relationship risk.",
+            "supported": true,
+            "cited_ids": [
+              "24f7de25c6268314"
+            ],
+            "note": "Chunk discusses trade policies/tariffs among supplier risks."
+          },
+          {
+            "claim": "Walmart International generated approximately 19% of consolidated net sales and faces 'trade protection measures' risk in markets that themselves source goods cross-border.",
+            "supported": true,
+            "cited_ids": [
+              "07e1d4fce8c1e43a"
+            ],
+            "note": "Both facts in chunk."
+          },
+          {
+            "claim": "Changing operations to comply with new trade restrictions 'can be expensive, time-consuming and disruptive,' restrictions can be announced 'with little or no advance notice,' and 'we may not be able to effectively mitigate all adverse impacts from such measures.'",
+            "supported": true,
+            "cited_ids": [
+              "e473e6698fb92dce"
+            ],
+            "note": "Verbatim quotes."
+          },
+          {
+            "claim": "Pricing strategies include absorbing cost increases instead of passing them on, reducing prices in certain categories, focusing on opening price points for certain food categories, and when necessary passing cost increases on to customers and members.",
+            "supported": true,
+            "cited_ids": [
+              "ec93a5d0f1241a8a"
+            ],
+            "note": "Verbatim from chunk."
+          },
+          {
+            "claim": "The merchandising-strategy sentence is cut off mid-sentence in the indexed text, so the full list of merchandising actions is not retrievable.",
+            "supported": false,
+            "cited_ids": [
+              "ec93a5d0f1241a8a"
+            ],
+            "note": "Contradicted: chunk lists the full set \u2014 working with suppliers to reduce costs/share absorption, private label and smaller pack sizes, earlier-than-usual/greater-volume or moderated purchasing, and securing ocean carrier and container capacity."
+          },
+          {
+            "claim": "The risk factor adds a conditional framing: 'If we are unable to successfully manage the various impacts that changes in these tax and trade policies have on our business, our results of operations and financial performance could be impacted.'",
+            "supported": true,
+            "cited_ids": [
+              "88f48a0db68810ff"
+            ],
+            "note": "Verbatim."
+          },
+          {
+            "claim": "Consolidated gross profit rate rose 8 basis points in fiscal 2026 to 24.2%, primarily driven by Walmart U.S. due to disciplined inventory management and growth in higher margin businesses globally, partially offset by mix shifts into lower-margin categories; tariffs are not named as a driver.",
+            "supported": true,
+            "cited_ids": [
+              "eb1495f3aa0fffdf"
+            ],
+            "note": "Numbers and drivers match; tariffs indeed absent from the variance discussion."
+          },
+          {
+            "claim": "Operating income was $29,825 million, or 4.2% of net sales, down 13 basis points, with the operating expense increase attributed mainly to ~$0.9 billion of higher self-insured general liability claims expense, not tariffs.",
+            "supported": true,
+            "cited_ids": [
+              "eb1495f3aa0fffdf",
+              "154ce59dc2db4125"
+            ],
+            "note": "All figures match; chunk also cites a $0.7B PhonePe charge and depreciation, but $0.9B is listed first as primary."
+          },
+          {
+            "claim": "Nowhere in the retrieved disclosures does Walmart quantify tariff cost in dollars or basis points or disclose tariff expense as a separate line; the only sizing is the 'less than one third' U.S.-imported figure and five named source countries.",
+            "supported": true,
+            "cited_ids": [
+              "ec93a5d0f1241a8a"
+            ],
+            "note": "Consistent with cited chunks, which contain no tariff dollar quantification."
+          }
+        ],
+        "answer_supported_fraction": 0.87,
+        "hallucinated_numbers": [],
+        "verdict": "partially_grounded"
+      }
+    },
+    {
+      "question": "Summarize Tesla's disclosures about regulatory credit revenue.",
+      "answer": "Tesla's FY2025 10-K (fiscal year ended December 31, 2025) discloses automotive regulatory credits as a separate revenue line and as a distinct revenue-recognition policy.\n\n**Amounts.** Automotive regulatory credits revenue was $1,993 million in 2025, $2,763 million in 2024 and $1,790 million in 2023, within total automotive revenues of $69,526 million, $77,070 million and $82,419 million respectively [c:215474c3a6ed8308]. MD&A states the line \"decreased $770 million, or 28%, in the year ended December 31, 2025 as compared to the year ended December 31, 2024,\" attributing fluctuations to Tesla's supply of credits (subject to changes in regulation, production and sales), to governmental and regulatory actions in 2025 \"such as OBBBA, [that] have restricted certain regulatory credit programs tied to our products,\" and to demand for credits from other automobile manufacturers [c:2f352f3b4f91e15d].\n\n**Nature and business model.** Tesla earns tradable credits in operating its automotive business under various regulations and sells them globally to other regulated entities that use them to comply with emission standards and other regulatory requirements [c:5c5ff665ed3aa1bc]. The line \"includes sales of regulatory credits to other automotive manufacturers,\" and revenue \"is directly related to our new vehicle production, sales and pricing negotiated with our customers\"; Tesla monetizes credits \"proactively as new vehicles are sold based on standing arrangements with buyers of such credits, typically as close as possible to the production and delivery of the vehicle or changes in regulation impacting the credits\" [c:20c8e42985ad33d0]. The credits are also discussed in Item 1 under \"Programs and Incentives,\" alongside the IRA as modified by the OBBBA (enacted July 4, 2025), which repealed consumer EV and residential energy tax credits and imposed more stringent eligibility requirements and phase-outs [c:11ad8866158261a2].\n\n**Accounting.** Payments are typically received when control transfers to the customer or per customary payment terms; revenue is recognized at the time control of the credits transfers, and the credits \"have negligible incremental costs associated with them\" [c:5c5ff665ed3aa1bc]. Deferred revenue related to credit sales was immaterial at December 31, 2025 and 2024, and revenue recognized from those prior-year deferred balances was also immaterial [c:5c5ff665ed3aa1bc]. Tesla applies the practical expedient for contracts of one year or less; for contracts with an original expected length of more than one year, total transaction price allocated to unsatisfied or partially unsatisfied performance obligations was $841 million as of December 31, 2025 [c:5c5ff665ed3aa1bc]. Because incremental costs are negligible, the revenue flows almost entirely to gross profit: total automotive gross margin fell from 18.4% to 17.8% and the automotive & services and other segment margin fell from 16.9% to 16.2%, in each case \"primarily due to a decrease in regulatory credits revenue\" [c:87b4f71d9ab55bd3]. For segment reporting, credit sales sit in the automotive segment [c:179769b80d456fa0].\n\n**Risk framing.** In Item 1A, Tesla warns that incentives supporting EV adoption may be \"reduced, eliminated, amended or exhausted,\" noting that \"recent governmental and regulatory actions have repealed and/or restricted consumer, manufacturing and charging infrastructure tax credits, and certain regulatory credit programs tied to our products,\" and that such actions may harm growth, prospects and operating results, with \"the loss of previously available tax credits and carbon offset mechanisms\" further negatively impacting financial results [c:1bc3b65c408aed69].\n\nNote that a related but separate item \u2014 manufacturing credits that reduce cost of automotive sales revenue ($565 million in 2025, $625 million in 2024, $359 million in 2023) \u2014 is disclosed as a cost benefit rather than as regulatory credit revenue [c:8635d22b367f733a]. I did not find a disclosure quantifying customer concentration for credit purchasers; the concentration-of-risk note states only that no entity represented 10% or more of total receivables at December 31, 2025 and 2024 [c:0797f04a8dd3ac90].",
+      "citations": [
+        {
+          "chunk_id": "215474c3a6ed8308",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "Total liabilities and equity $ 137,806 $ 122,070\nThe accompanying notes are an integral part of these consolidated financial statements.\n49\nTesla, Inc.\nConsolidated Statements of Operations\n(in millions, except per share data)\nYear Ended December 31,\n2025 2024 2023\nRevenues\nAutomotive sales $ 65,821"
+        },
+        {
+          "chunk_id": "2f352f3b4f91e15d",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "Services and other revenue consists of sales of used vehicles, non-warranty maintenance services and collision, paid Supercharging sessions, automotive insurance business revenue, part sales and retail merchandise sales.\n2025 compared to 2024\nAutomotive sales revenue decreased $6.66 billion, or 9%, "
+        },
+        {
+          "chunk_id": "5c5ff665ed3aa1bc",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "Automotive Regulatory Credits\nWe earn tradable credits in the operation of our automotive business under various regulations. We sell these credits globally to other regulated entities who can use the credits to comply with emission standards and other regulatory requirements.\nPayments for automotiv"
+        },
+        {
+          "chunk_id": "20c8e42985ad33d0",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "Total automotive revenues 69,526 77,070 82,419 (7,544) (10) % (5,349) (6) %\nServices and other 12,530 10,534 8,319 1,996 19 % 2,215 27 %\nTotal automotive & services and other segment revenue 82,056 87,604 90,738 (5,548) (6) % (3,134) (3) %\nEnergy generation and storage segment revenue 12,771 10,086 "
+        },
+        {
+          "chunk_id": "11ad8866158261a2",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "1",
+          "item_title": "Business",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "The operation of our business is also impacted by various government programs, incentives, and other arrangements. See Note 2, Summary of Significant Accounting Policies , to the consolidated financial statements included elsewhere in this Annual Report on Form 10-K for further details.\nPrograms and"
+        },
+        {
+          "chunk_id": "87b4f71d9ab55bd3",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "Cost of services and other revenue increased $1.68 billion, or 17%, in the year ended December 31, 2025 as compared to the year ended December 31, 2024, primarily due to increases in used vehicle sales volume and cost, cost of paid Supercharging sessions, cost related to our automotive insurance bus"
+        },
+        {
+          "chunk_id": "179769b80d456fa0",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "92\nNote 16 \u2013 Segment Reporting and Information about Geographic Areas\nOur Chief Executive Officer, as the CODM, organizes our company, manages resource allocations and measures performance among two operating and reportable segments: (i) automotive and (ii) energy generation and storage. The automot"
+        },
+        {
+          "chunk_id": "1bc3b65c408aed69",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "Risks Related to Government Laws and Regulations\nDemand for our products and services may be impacted by the status of government and economic incentives supporting the development and adoption of such products.\nGovernment and economic incentives that support the development and adoption of electric"
+        },
+        {
+          "chunk_id": "8635d22b367f733a",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "Cost of Revenues\nAutomotive Segment\nAutomotive Sales\nCost of automotive sales revenue includes direct and indirect materials, labor costs, manufacturing overhead, including depreciation costs of tooling and machinery, shipping and logistic costs, tariffs, vehicle connectivity costs, FSD (Supervised)"
+        },
+        {
+          "chunk_id": "0797f04a8dd3ac90",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "Concentration of Risk\nCredit Risk\nFinancial instruments that potentially subject us to a concentration of credit risk consist of cash, cash equivalents, investments, restricted cash, accounts receivable and other finance receivables. Our cash and investments balances are primarily on deposit at high"
+        }
+      ],
+      "numeric_grounded": true,
+      "ungrounded_figures": [],
+      "tool_calls": [
+        {
+          "tool": "list_indexed_companies",
+          "input": {},
+          "chars": 698
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "regulatory credits revenue sales of automotive regulatory credits",
+            "ticker": "TSLA"
+          },
+          "chars": 8943
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "Automotive regulatory credits revenue line item 2,806 2,554 1,790",
+            "ticker": "TSLA",
+            "mode": "bm25"
+          },
+          "chars": 8916
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "risk that demand for regulatory credits declines could materially reduce profitability",
+            "ticker": "TSLA",
+            "item": "1A"
+          },
+          "chars": 8811
+        },
+        {
+          "tool": "expand_chunk",
+          "input": {
+            "chunk_id": "c:11ad8866158261a2"
+          },
+          "chars": 12
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "gross margin impacted by regulatory credit sales; concentration of revenue from credit purchasers",
+            "ticker": "TSLA",
+            "k": 8
+          },
+          "chars": 11969
+        },
+        {
+          "tool": "expand_chunk",
+          "input": {
+            "chunk_id": "c:5c5ff665ed3aa1bc"
+          },
+          "chars": 12
+        }
+      ],
+      "usage": {
+        "input_tokens": 49786,
+        "output_tokens": 2464
+      },
+      "seconds": 45.0,
+      "judge": {
+        "claims": [
+          {
+            "claim": "Automotive regulatory credits revenue was $1,993 million in 2025, $2,763 million in 2024 and $1,790 million in 2023, within total automotive revenues of $69,526M, $77,070M and $82,419M",
+            "supported": true,
+            "cited_ids": [
+              "215474c3a6ed8308"
+            ],
+            "note": "Income statement lines match exactly."
+          },
+          {
+            "claim": "MD&A: regulatory credits revenue decreased $770 million, or 28%, in 2025 vs 2024; fluctuations driven by supply of credits (regulation, production, sales), 2025 governmental/regulatory actions such as OBBBA restricting certain credit programs, and demand from other automakers",
+            "supported": true,
+            "cited_ids": [
+              "2f352f3b4f91e15d"
+            ],
+            "note": "Quoted language and figures appear verbatim in MD&A chunk."
+          },
+          {
+            "claim": "Tesla earns tradable credits in operating its automotive business under various regulations and sells them globally to other regulated entities that use them to comply with emission standards and other regulatory requirements",
+            "supported": true,
+            "cited_ids": [
+              "5c5ff665ed3aa1bc"
+            ],
+            "note": "Verbatim in accounting policy chunk."
+          },
+          {
+            "claim": "The line includes sales of regulatory credits to other automotive manufacturers; revenue is directly related to new vehicle production, sales and pricing negotiated with customers; credits are monetized proactively as new vehicles are sold under standing arrangements, typically as close as possible to production/delivery or changes in regulation",
+            "supported": true,
+            "cited_ids": [
+              "20c8e42985ad33d0"
+            ],
+            "note": "Verbatim MD&A description."
+          },
+          {
+            "claim": "Credits are discussed in Item 1 under 'Programs and Incentives' alongside the IRA as modified by the OBBBA (enacted July 4, 2025), which repealed consumer EV and residential energy tax credits and imposed more stringent eligibility requirements and phase-outs",
+            "supported": true,
+            "cited_ids": [
+              "11ad8866158261a2"
+            ],
+            "note": "Item 1 chunk contains the heading, enactment date, and repeal/phase-out language."
+          },
+          {
+            "claim": "Payments typically received when control transfers or per customary payment terms; revenue recognized at time control of credits transfers; credits have negligible incremental costs",
+            "supported": true,
+            "cited_ids": [
+              "5c5ff665ed3aa1bc"
+            ],
+            "note": "Directly stated."
+          },
+          {
+            "claim": "Deferred revenue related to credit sales was immaterial at December 31, 2025 and 2024, and revenue recognized from prior-year deferred balances was also immaterial",
+            "supported": true,
+            "cited_ids": [
+              "5c5ff665ed3aa1bc"
+            ],
+            "note": "Matches chunk statements on immaterial deferred revenue."
+          },
+          {
+            "claim": "Practical expedient applied for contracts of one year or less; transaction price allocated to unsatisfied/partially unsatisfied performance obligations for contracts longer than one year was $841 million as of December 31, 2025",
+            "supported": true,
+            "cited_ids": [
+              "5c5ff665ed3aa1bc"
+            ],
+            "note": "Exact figure and expedient election disclosed."
+          },
+          {
+            "claim": "Total automotive gross margin fell from 18.4% to 17.8% and the automotive & services and other segment margin fell from 16.9% to 16.2%, primarily due to a decrease in regulatory credits revenue",
+            "supported": true,
+            "cited_ids": [
+              "87b4f71d9ab55bd3"
+            ],
+            "note": "Percentages and attribution match MD&A chunk; the 'flows almost entirely to gross profit' framing is a mild interpretation of the negligible-incremental-cost disclosure."
+          },
+          {
+            "claim": "For segment reporting, credit sales sit in the automotive segment",
+            "supported": true,
+            "cited_ids": [
+              "179769b80d456fa0"
+            ],
+            "note": "Segment note states automotive segment includes sales of automotive regulatory credits."
+          },
+          {
+            "claim": "Item 1A warns incentives may be reduced, eliminated, amended or exhausted; recent governmental/regulatory actions repealed/restricted consumer, manufacturing and charging infrastructure tax credits and certain regulatory credit programs; loss of tax credits and carbon offset mechanisms may further negatively impact results",
+            "supported": true,
+            "cited_ids": [
+              "1bc3b65c408aed69"
+            ],
+            "note": "Quotations verbatim from risk factor chunk."
+          },
+          {
+            "claim": "Manufacturing credits reducing cost of automotive sales revenue were $565 million in 2025, $625 million in 2024, $359 million in 2023, disclosed as a cost benefit",
+            "supported": true,
+            "cited_ids": [
+              "8635d22b367f733a"
+            ],
+            "note": "Exact figures in cost of revenues policy chunk."
+          },
+          {
+            "claim": "No disclosure quantifying customer concentration for credit purchasers; concentration-of-risk note states no entity represented 10% or more of total receivables at December 31, 2025 and 2024",
+            "supported": true,
+            "cited_ids": [
+              "0797f04a8dd3ac90"
+            ],
+            "note": "Concentration of credit risk statement matches."
+          }
+        ],
+        "answer_supported_fraction": 1.0,
+        "hallucinated_numbers": [],
+        "verdict": "grounded"
+      }
+    },
+    {
+      "question": "What does Johnson & Johnson say about the status of talc litigation?",
+      "answer": "In its FY2025 10-K (fiscal year ended December 28, 2025), J&J describes talc litigation as back in the tort system after its third bankruptcy attempt failed, with roughly 74,360 U.S. talc plaintiffs still pending and a much-reduced reserve.\n\nWhere things stand:\n\n- Scale of claims: as of December 28, 2025, approximately 74,360 plaintiffs in the U.S. had direct claims in pending lawsuits over body powders containing talc, primarily JOHNSON'S Baby Powder, and the number of pending lawsuits is expected to fluctuate as cases settle or are dismissed and new ones are filed [c:3a98b9511532c06e]. A \"significant number of personal injury claims alleging that talc causes cancer\" have been asserted against the Company and its affiliates [c:6568c8b6e1f16c44].\n\n- Bankruptcy strategy failed: after the 2021 corporate restructuring created LTL Management (later renamed LLT Management), which assumed the Talc-Related Liabilities [c:3e416b6077b9ef35], J&J solicited votes in May 2024 on a \"prepackaged\" Chapter 11 plan to resolve all current and future U.S. cosmetic talc claims (excluding mesothelioma and State consumer protection claims) for a present value of approximately $6.475 billion payable over 25 years (nominal ~$8.0 billion, discounted at 4.4%), covering 99.75% of then-pending talc lawsuits [c:24a72f596945b501]. Red River filed the Chapter 11 petition in the Southern District of Texas in September 2024, and J&J withdrew its appeal of the LTL 2 dismissal [c:11086b75ceab0934]. In March 2025 the Texas Bankruptcy Court dismissed the case [c:11086b75ceab0934].\n\n- Reserve movements: J&J took a cumulative incremental charge of approximately $5.0 billion in fiscal 2024, bringing the reserve to approximately $11.6 billion present value (nominal ~$13.5 billion) at year-end 2024; after the Texas dismissal it reversed substantially all, or approximately $7 billion, leaving a total present value reserve of approximately $3.4 billion as of the fourth quarter of 2025 [c:11086b75ceab0934]. MD&A confirms fiscal 2025 other income includes the reversal of approximately $7.0 billion of the previously accrued talc reserve [c:1ec09d76f1fc358b] [c:2307cccd07a5d370].\n\n- Current posture \u2014 litigating, not settling: J&J said it would not appeal the Texas dismissal and \"returned to the tort system to litigate the talc claims and defend the safety of its products.\" Ovarian cancer trials are being scheduled in various state courts throughout 2026 and beyond. In the MDL, the court is addressing Daubert motions on general causation, specific causation, and certain asbestos testing methods; in January 2026 the Special Master's Report and Recommendation on general causation excluded certain plaintiff expert opinions while allowing others to proceed, and J&J will appeal that to the District Court, with remaining Daubert motions expected to be decided in the first half of 2026 [c:2cdb97a825fba9f5]. On mesothelioma, J&J had resolved 95% of lawsuits filed to date as of August 2024, but cases continue to be filed and trial activity continues in state courts [c:11086b75ceab0934].\n\n- Verdicts: J&J has obtained a number of defense verdicts, but there have also been verdicts against it, many reversed on appeal; the July 2018 Ingham verdict of $4.7 billion was reduced on appeal to $2.1 billion, transfer to the Missouri Supreme Court was denied, and certiorari was sought in June 2021 [c:6568c8b6e1f16c44].\n\n- Related proceedings: the Imerys/Cyprus global settlement agreement (July 2024) resolving indemnity and insurance disputes was approved by the Delaware Bankruptcy Court in October 2024; insurers' appeal was denied by the District Court in August 2025 and has been appealed to the Third Circuit [c:397ebe209535de90]. Imerys and Cyprus have proposed Chapter 11 plans channeling talc claims to a trust, with a joint confirmation hearing that began in April 2025 and was scheduled to continue in February 2026 [c:e8e50f361c764db9]. A 2018 securities class action alleging failure to disclose asbestos contamination in talc products remains pending, with class certification granted in December 2023 and an appeal accepted by the Third Circuit [c:e8e50f361c764db9].\n\n- How J&J frames the uncertainty: management is unable to estimate the possible loss or range of loss beyond the amounts accrued, and records accruals only when a loss is probable and reasonably estimable \u2014 which the auditor designated a critical audit matter [c:7e0d2f8353aaab6a] [c:15755fe887c1b7d9]. Overall, the ultimate outcome of legal proceedings, net of accrued liabilities, is \"not expected to have a material adverse effect on the Company's financial position,\" though resolution of or increases in accruals for one or more matters in any period may materially affect results of operations and cash flows for that period [c:6568c8b6e1f16c44]. In risk factors, J&J says that while it believes it has substantial defenses, \"it is not feasible to predict the ultimate outcome of litigation\" [c:0f82913f0348761d].",
+      "citations": [
+        {
+          "chunk_id": "3a98b9511532c06e",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "The table below contains the most significant of these cases and provides the approximate number of plaintiffs in the United States with direct claims in pending lawsuits regarding injuries allegedly due to the relevant product or product category as of December 28, 2025.\nProduct or product category"
+        },
+        {
+          "chunk_id": "6568c8b6e1f16c44",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "In the Company\u2019s opinion, based on its examination of these matters, its experience to date and discussions with counsel, the ultimate outcome of legal proceedings, net of liabilities accrued in the Company\u2019s balance sheet, is not expected to have a material adverse effect on the Company\u2019s financial"
+        },
+        {
+          "chunk_id": "3e416b6077b9ef35",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "In an effort to expeditiously resolve the litigation for the overwhelming majority of claimants, beginning in October 2021, Johnson & Johnson Consumer Inc. (Old JJCI) implemented a corporate restructuring, through which Old JJCI ceased to exist and three new entities were created: (a) LTL Management"
+        },
+        {
+          "chunk_id": "24a72f596945b501",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "In October 2023, the Company stated that it was pursuing the following four parallel and alternative pathways to achieve a comprehensive and final resolution of the talc claims: (i) the appeal of the LTL 2 dismissal decision; (ii) pursuing a consensual \u201cprepackaged\u201d bankruptcy case, as \u201cstrongly enc"
+        },
+        {
+          "chunk_id": "11086b75ceab0934",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "While the Company had resolved 95 % of the mesothelioma lawsuits filed to date as of August 2024, cases continue to be filed. Trial activity has continued in various state courts.\nIn September 2024, while reiterating the Company's continued confidence in the safety of its talc products, Red River fi"
+        },
+        {
+          "chunk_id": "1ec09d76f1fc358b",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "Litigation related (1)\n$ (6.0) 5.5 (11.5)\nEmployee benefit plan related (0.5) (0.9) 0.4\nChanges in the fair value of securities (2)\n(0.4) 0.3 (0.7)\nAcquisition, Integration and Divestiture related (3)\n0.2 0.8 (0.6)\nMonetization of royalty rights 0.0 (0.3) 0.3\nOther (0.5) (0.7) 0.2\nTotal Other (Incom"
+        },
+        {
+          "chunk_id": "2307cccd07a5d370",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "Asia-Pacific, Africa 14,031 13,593 13,756 1,544 1,454\nSegments total 94,193 88,821 85,159 121,127 101,119\nGeneral corporate 1,217 1,217\nOther non long-lived assets 76,866 77,768\nWorldwide total $ 94,193 88,821 85,159 $ 199,210 180,104\nSee Note 1 for a description of the segments in which the Company"
+        },
+        {
+          "chunk_id": "2cdb97a825fba9f5",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "After the Texas dismissal, the Company announced it would not appeal the decision and returned to the tort system to litigate the talc claims and defend the safety of its products. Ovarian cancer trials are being scheduled in various state courts throughout 2026 and beyond. In the MDL, the court is "
+        },
+        {
+          "chunk_id": "397ebe209535de90",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "In February 2021, Cyprus Mines Corporation (Cyprus), which sold certain talc mines and assets to Imerys, filed a voluntary petition for relief under Chapter 11 of the Bankruptcy Code in the Delaware Bankruptcy Court.\n96\nIn July 2024, the Company, Imerys, and Cyprus and certain of their affiliates (i"
+        },
+        {
+          "chunk_id": "e8e50f361c764db9",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "Imerys and Cyprus have both proposed Chapter 11 plans, which contemplate talc claims being channeled to a trust and resolved in accordance with distribution procedures. A joint confirmation hearing for the plans began in April 2025 and is scheduled to continue in February 2026.\nIn February 2018, a s"
+        },
+        {
+          "chunk_id": "7e0d2f8353aaab6a",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "2025 Annual Report\n109\nLitigation Contingencies \u2013 Talc\nAs described in Notes 1 and 19 to the consolidated financial statements, a significant number of personal injury claims alleging that talc causes cancer have been asserted against the Company and its affiliates arising out of the use of body pow"
+        },
+        {
+          "chunk_id": "15755fe887c1b7d9",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "The principal considerations for our determination that performing procedures relating to the litigation contingencies \u2013 talc is a critical audit matter are (i) the significant judgment by management when assessing the likelihood of a loss being incurred for the remaining unresolved talc claims and "
+        },
+        {
+          "chunk_id": "0f82913f0348761d",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "The Company is subject to significant legal proceedings that can result in significant expenses, fines and reputational damage.\nIn the ordinary course of business, Johnson & Johnson and its subsidiaries are subject to numerous claims and lawsuits involving various issues such as product liability, p"
+        }
+      ],
+      "numeric_grounded": true,
+      "ungrounded_figures": [],
+      "tool_calls": [
+        {
+          "tool": "resolve_company",
+          "input": {
+            "query": "Johnson &amp; Johnson"
+          },
+          "chars": 2
+        },
+        {
+          "tool": "list_indexed_companies",
+          "input": {},
+          "chars": 698
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "talc litigation ovarian cancer mesothelioma status",
+            "ticker": "JNJ",
+            "k": 10
+          },
+          "chars": 14685
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "talc claims bankruptcy prepackaged plan LTL Red River Talc",
+            "ticker": "JNJ",
+            "k": 10
+          },
+          "chars": 14685
+        },
+        {
+          "tool": "expand_chunk",
+          "input": {
+            "chunk_id": "c:11086b75ceab0934"
+          },
+          "chars": 12
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "talc State consumer protection attorneys general lawsuits Kenvue indemnification",
+            "ticker": "JNJ",
+            "k": 8
+          },
+          "chars": 11688
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "total present value of the reserve is approximately $3.4 billion comprising",
+            "ticker": "JNJ",
+            "mode": "bm25",
+            "k": 6
+          },
+          "chars": 8601
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "talc litigation risk uncertain outcome adverse verdicts risk factor",
+            "ticker": "JNJ",
+            "item": "1A",
+            "k": 6
+          },
+          "chars": 8513
+        }
+      ],
+      "usage": {
+        "input_tokens": 57572,
+        "output_tokens": 2860
+      },
+      "seconds": 47.3,
+      "judge": {
+        "claims": [
+          {
+            "claim": "J&J's FY2025 10-K covers fiscal year ended December 28, 2025, and describes talc litigation as back in the tort system after its third bankruptcy attempt failed",
+            "supported": true,
+            "cited_ids": [
+              "3a98b9511532c06e",
+              "3e416b6077b9ef35",
+              "2cdb97a825fba9f5",
+              "11086b75ceab0934"
+            ],
+            "note": "Chunks confirm data as of December 28, 2025, two prior dismissed petitions (2021, 2023) plus the Red River case dismissed March 2025, and the return to the tort system."
+          },
+          {
+            "claim": "As of December 28, 2025, approximately 74,360 plaintiffs in the U.S. had direct claims in pending lawsuits over body powders containing talc, primarily JOHNSON'S Baby Powder, and pending lawsuits are expected to fluctuate",
+            "supported": true,
+            "cited_ids": [
+              "3a98b9511532c06e"
+            ],
+            "note": "Table lists 74,360 plaintiffs and the fluctuation language."
+          },
+          {
+            "claim": "A significant number of personal injury claims alleging that talc causes cancer have been asserted against the Company and its affiliates",
+            "supported": true,
+            "cited_ids": [
+              "6568c8b6e1f16c44"
+            ],
+            "note": "Direct quote in chunk."
+          },
+          {
+            "claim": "The 2021 corporate restructuring created LTL Management (later renamed LLT Management), which assumed the Talc-Related Liabilities",
+            "supported": true,
+            "cited_ids": [
+              "3e416b6077b9ef35",
+              "24a72f596945b501"
+            ],
+            "note": "3e416b describes LTL and Talc-Related Liabilities; 24a72f notes December 2023 rename to LLT Management LLC."
+          },
+          {
+            "claim": "In May 2024 J&J solicited votes on a prepackaged Chapter 11 plan resolving all current and future U.S. cosmetic talc claims (excluding mesothelioma and State consumer protection claims) for present value of ~$6.475 billion over 25 years (nominal ~$8.0 billion, discounted at 4.4%), covering 99.75% of then-pending talc lawsuits",
+            "supported": true,
+            "cited_ids": [
+              "24a72f596945b501"
+            ],
+            "note": "All figures match chunk exactly."
+          },
+          {
+            "claim": "Red River filed the Chapter 11 petition in the Southern District of Texas in September 2024, and J&J withdrew its appeal of the LTL 2 dismissal",
+            "supported": true,
+            "cited_ids": [
+              "11086b75ceab0934"
+            ],
+            "note": "Matches chunk."
+          },
+          {
+            "claim": "In March 2025 the Texas Bankruptcy Court dismissed the case",
+            "supported": true,
+            "cited_ids": [
+              "11086b75ceab0934"
+            ],
+            "note": "Matches chunk."
+          },
+          {
+            "claim": "J&J took a cumulative incremental charge of approximately $5.0 billion in fiscal 2024, bringing the reserve to approximately $11.6 billion present value (nominal ~$13.5 billion) at year-end 2024",
+            "supported": true,
+            "cited_ids": [
+              "11086b75ceab0934"
+            ],
+            "note": "Figures match chunk."
+          },
+          {
+            "claim": "After the Texas dismissal it reversed substantially all, or approximately $7 billion, leaving a total present value reserve of approximately $3.4 billion as of the fourth quarter of 2025",
+            "supported": true,
+            "cited_ids": [
+              "11086b75ceab0934"
+            ],
+            "note": "Matches chunk; also corroborated by 7e0d chunk ($3.4B as of Dec 28, 2025)."
+          },
+          {
+            "claim": "MD&A confirms fiscal 2025 other income includes the reversal of approximately $7.0 billion of previously accrued talc reserve",
+            "supported": true,
+            "cited_ids": [
+              "1ec09d76f1fc358b",
+              "2307cccd07a5d370"
+            ],
+            "note": "Both chunks state the ~$7.0 billion reversal in fiscal 2025."
+          },
+          {
+            "claim": "J&J said it would not appeal the Texas dismissal and returned to the tort system to litigate talc claims; ovarian cancer trials are being scheduled in state courts throughout 2026 and beyond",
+            "supported": true,
+            "cited_ids": [
+              "2cdb97a825fba9f5"
+            ],
+            "note": "Quoted language matches chunk."
+          },
+          {
+            "claim": "In the MDL the court is addressing Daubert motions on general causation, specific causation, and certain asbestos testing methods; in January 2026 the Special Master's Report and Recommendation on general causation excluded certain plaintiff expert opinions while allowing others, J&J will appeal to the District Court, and remaining Daubert motions are expected to be decided in the first half of 2026",
+            "supported": true,
+            "cited_ids": [
+              "2cdb97a825fba9f5"
+            ],
+            "note": "Matches chunk verbatim in substance."
+          },
+          {
+            "claim": "J&J had resolved 95% of mesothelioma lawsuits filed to date as of August 2024, but cases continue to be filed and trial activity continues in state courts",
+            "supported": true,
+            "cited_ids": [
+              "11086b75ceab0934"
+            ],
+            "note": "Stated in chunk (also in 24a72f)."
+          },
+          {
+            "claim": "J&J has obtained a number of defense verdicts, with some verdicts against it many reversed on appeal; the July 2018 Ingham verdict of $4.7 billion was reduced on appeal to $2.1 billion, transfer to the Missouri Supreme Court was denied, and certiorari was sought in June 2021",
+            "supported": true,
+            "cited_ids": [
+              "6568c8b6e1f16c44"
+            ],
+            "note": "Supported; chunk adds that the June 2021 certiorari petition was denied and the ~$2.5 billion award was paid, which the answer omits but does not contradict."
+          },
+          {
+            "claim": "The Imerys/Cyprus global settlement agreement (July 2024) was approved by the Delaware Bankruptcy Court in October 2024; insurers' appeal was denied by the District Court in August 2025 and has been appealed to the Third Circuit",
+            "supported": true,
+            "cited_ids": [
+              "397ebe209535de90"
+            ],
+            "note": "Matches chunk."
+          },
+          {
+            "claim": "Imerys and Cyprus have proposed Chapter 11 plans channeling talc claims to a trust, with a joint confirmation hearing that began in April 2025 and was scheduled to continue in February 2026",
+            "supported": true,
+            "cited_ids": [
+              "e8e50f361c764db9"
+            ],
+            "note": "Matches chunk."
+          },
+          {
+            "claim": "A 2018 securities class action alleging failure to disclose asbestos contamination in talc products remains pending, with class certification granted in December 2023 and an appeal accepted by the Third Circuit",
+            "supported": true,
+            "cited_ids": [
+              "e8e50f361c764db9"
+            ],
+            "note": "Supported, though chunk adds later developments (Third Circuit affirmed certification July 2025; cert petition February 2026) not reflected in the answer."
+          },
+          {
+            "claim": "Management is unable to estimate possible loss or range of loss beyond amounts accrued and records accruals only when a loss is probable and reasonably estimable; the auditor designated this a critical audit matter",
+            "supported": true,
+            "cited_ids": [
+              "7e0d2f8353aaab6a",
+              "15755fe887c1b7d9"
+            ],
+            "note": "Both chunks support, including critical audit matter designation."
+          },
+          {
+            "claim": "The ultimate outcome of legal proceedings, net of accrued liabilities, is not expected to have a material adverse effect on financial position, though resolution or increases in accruals may materially affect results of operations and cash flows for a period",
+            "supported": true,
+            "cited_ids": [
+              "6568c8b6e1f16c44"
+            ],
+            "note": "Direct quote from chunk."
+          },
+          {
+            "claim": "In risk factors, J&J says that while it believes it has substantial defenses, it is not feasible to predict the ultimate outcome of litigation",
+            "supported": true,
+            "cited_ids": [
+              "0f82913f0348761d"
+            ],
+            "note": "Direct quote from Item 1A chunk."
+          }
+        ],
+        "answer_supported_fraction": 1.0,
+        "hallucinated_numbers": [],
+        "verdict": "grounded"
+      }
+    },
+    {
+      "question": "What were Exxon Mobil's proved reserves and how did they change?",
+      "answer": "**Answer: At year-end 2025 ExxonMobil reported total proved reserves of 19,311 million oil-equivalent barrels, down from 19,949 million at year-end 2024 (and up from 16,928 million at year-end 2023)** [c:854499eb1b02e39d] [c:cad80f83ddd2dd9b].\n\nComposition at December 31, 2025 (Item 2 summary): 8,187 million bbls crude oil, 2,437 million bbls NGL, 2,330 million bbls bitumen, 288 million bbls synthetic oil and 36,408 billion cubic feet of natural gas, converted at 6 bcf per million barrels [c:654bf2ca6de4feea]. Of the 19,311 MOEB total, 12,304 was developed and 7,007 undeveloped; consolidated subsidiaries held 10,722 developed and 5,860 undeveloped, equity companies 1,582 and 1,147 [c:654bf2ca6de4feea] [c:854499eb1b02e39d].\n\nDrivers of the year-over-year decline, as management describes them: \"The changes between 2025 year-end proved reserves and 2024 year-end proved reserves include worldwide production of 1.8 billion oil-equivalent barrels (GOEB), asset sales of 0.1 GOEB primarily in the United States, and downward revisions of 0.9 GOEB attributed primarily to the United States. Additions to proved reserves include 2.1 GOEB from extensions and discoveries primary in the United States and Guyana and 0.1 GOEB related to United States acquisitions.\" [c:dd8dc25a4bd7240f]\n\nThe detailed roll-forward for consolidated subsidiaries (millions of oil-equivalent barrels) shows January 1, 2025 of 16,955, revisions (929), purchases 118, sales (132), extensions/discoveries 2,048, production (1,478), ending at 16,582; equity-company proportional interests went from 2,994 to 2,729 (revisions 23, sales (4), production (284)) [c:0f45abb94af84f67]. On the liquids side, total liquids proved reserves were 13,242 million barrels at year-end 2025 [c:f704fc432363c0a7] versus 13,691 million at year-end 2024 [c:df2f49f4c88f7080].\n\nFor context on the prior year's increase, the 2024 versus 2023 change was driven by large purchases (4,044 bcf gas / 2,281 MOEB) and extensions/discoveries of 2,754 bcf / 1,915 MOEB, against production of 2,207 bcf / 1,355 MOEB [c:45cb34294984d495] [c:8777db05b24c15b1]. ExxonMobil also notes it invested $19.0 billion during 2025 to progress development of reported proved undeveloped reserves, including $18.8 billion for oil and gas producing activities [c:3b6d844645231080], and that no major discovery or adverse event has occurred since December 31, 2025 that would significantly change the estimates [c:ea6dbf71d87af190].",
+      "citations": [
+        {
+          "chunk_id": "854499eb1b02e39d",
+          "ticker": "XOM",
+          "company": "EXXON MOBIL CORP",
+          "fiscal_year": 2025,
+          "item": "16",
+          "item_title": "Form 10-K Summary",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm",
+          "snippet": "Consolidated subsidiaries 11,206 356 338 111 2,010 3,057 17,078 10,722\nEquity companies 48 \u2014 207 775 4,782 \u2014 5,812 1,582\nProved undeveloped reserves\nConsolidated subsidiaries 5,581 171 \u2014 2 189 2,653 8,596 5,860\nEquity companies \u2014 \u2014 56 \u2014 4,866 \u2014 4,922 1,147\nTotal proved reserves at December 31, 2025\n"
+        },
+        {
+          "chunk_id": "cad80f83ddd2dd9b",
+          "ticker": "XOM",
+          "company": "EXXON MOBIL CORP",
+          "fiscal_year": 2025,
+          "item": "16",
+          "item_title": "Form 10-K Summary",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm",
+          "snippet": "123\nTable of Contents\nFinancial Table of Contents\nNatural Gas and Oil-Equivalent Proved Reserves (continued)\nNatural Gas\n(billions of cubic feet)\nOil-Equivalent\nTotal\nAll Products (1)\n(millions of oil-equivalent barrels)\nUnited\nStates Canada/\nOther\nAmericas Europe Africa Asia Australia/\nOceania Tota"
+        },
+        {
+          "chunk_id": "654bf2ca6de4feea",
+          "ticker": "XOM",
+          "company": "EXXON MOBIL CORP",
+          "fiscal_year": 2025,
+          "item": "2",
+          "item_title": "Properties",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm",
+          "snippet": "Total Equity Company 476 137 \u2014 \u2014 5,812 1,582\nTotal Developed 4,705 1,263 2,230 288 22,890 12,304\nUndeveloped\nConsolidated Subsidiaries\nUnited States 1,558 988 \u2014 \u2014 5,581 3,476\nCanada/Other Americas (1)\n609 \u2014 100 \u2014 171 737\nEurope \u2014 \u2014 \u2014 \u2014 \u2014 \u2014\nAfrica 32 \u2014 \u2014 \u2014 2 32\nAsia 1,089 23 \u2014 \u2014 189 1,143\nAustralia/O"
+        },
+        {
+          "chunk_id": "dd8dc25a4bd7240f",
+          "ticker": "XOM",
+          "company": "EXXON MOBIL CORP",
+          "fiscal_year": 2025,
+          "item": "16",
+          "item_title": "Form 10-K Summary",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm",
+          "snippet": "Net proved developed reserves are those volumes that are expected to be recovered through existing wells with existing equipment and operating methods or in which the cost of the required equipment is relatively minor compared to the cost of a new well. Net proved undeveloped reserves are those volu"
+        },
+        {
+          "chunk_id": "0f45abb94af84f67",
+          "ticker": "XOM",
+          "company": "EXXON MOBIL CORP",
+          "fiscal_year": 2025,
+          "item": "16",
+          "item_title": "Form 10-K Summary",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm",
+          "snippet": "16,843 541 406 95 2,540 5,479 25,904 16,955\nRevisions (1,482) 21 21 34 68 228 (1,110) (929)\nImproved recovery \u2014 \u2014 \u2014 \u2014 \u2014 \u2014 \u2014 \u2014\nPurchases 234 \u2014 \u2014 \u2014 \u2014 \u2014 234 118\nSales (248) (28) \u2014 \u2014 (14) \u2014 (290) (132)\nExtensions/discoveries 2,769 26 \u2014 \u2014 \u2014 485 3,280 2,048\nProduction (1,329) (33) (89) (16) (395) (482) (2"
+        },
+        {
+          "chunk_id": "f704fc432363c0a7",
+          "ticker": "XOM",
+          "company": "EXXON MOBIL CORP",
+          "fiscal_year": 2025,
+          "item": "16",
+          "item_title": "Form 10-K Summary",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm",
+          "snippet": "As of December 31, 2025\nProved developed reserves\nConsolidated subsidiaries 2,627 587 3 185 1,915 38 5,355 2,230 288 7,873\nEquity companies 8 \u2014 2 7 596 \u2014 613 \u2014 \u2014 613\nProved undeveloped reserves\nConsolidated subsidiaries 2,546 609 \u2014 32 1,112 30 4,329 100 \u2014 4,429\nEquity companies \u2014 \u2014 3 \u2014 324 \u2014 327 \u2014 \u2014"
+        },
+        {
+          "chunk_id": "df2f49f4c88f7080",
+          "ticker": "XOM",
+          "company": "EXXON MOBIL CORP",
+          "fiscal_year": 2025,
+          "item": "16",
+          "item_title": "Form 10-K Summary",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm",
+          "snippet": "120\nTable of Contents\nFinancial Table of Contents\nCrude Oil, Natural Gas Liquids, Bitumen and Synthetic Oil Proved Reserves (continued)\nCrude Oil and Natural Gas Liquids Bitumen Synthetic Oil Total\n(millions of barrels) United\nStates Canada/\nOther\nAmericas Europe Africa Asia Australia/\nOceania Total"
+        },
+        {
+          "chunk_id": "45cb34294984d495",
+          "ticker": "XOM",
+          "company": "EXXON MOBIL CORP",
+          "fiscal_year": 2025,
+          "item": "16",
+          "item_title": "Form 10-K Summary",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm",
+          "snippet": "Extensions/discoveries 1,930 67 \u2014 \u2014 \u2014 \u2014 1,997 1,065\nProduction (957) (53) (103) (43) (379) (489) (2,024) (1,121)\nDecember 31, 2023\n12,263 520 307 220 2,794 5,858 21,962 13,716\nAttributable to noncontrolling interests 26\nProportional interest in proved reserves of equity companies\nJanuary 1, 2023\n127"
+        },
+        {
+          "chunk_id": "8777db05b24c15b1",
+          "ticker": "XOM",
+          "company": "EXXON MOBIL CORP",
+          "fiscal_year": 2025,
+          "item": "16",
+          "item_title": "Form 10-K Summary",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm",
+          "snippet": "Extensions/discoveries 2,683 68 \u2014 2 \u2014 1 2,754 1,915\nProduction (1,153) (59) (99) (46) (373) (477) (2,207) (1,355)\nDecember 31, 2024\n16,843 541 406 95 2,540 5,479 25,904 16,955\nAttributable to noncontrolling interests 20\nProportional interest in proved reserves of equity companies\nJanuary 1, 2024\n57 "
+        },
+        {
+          "chunk_id": "3b6d844645231080",
+          "ticker": "XOM",
+          "company": "EXXON MOBIL CORP",
+          "fiscal_year": 2025,
+          "item": "2",
+          "item_title": "Properties",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm",
+          "snippet": "Overall, investments of $19.0 billion were made by the Corporation during 2025 to progress the development of reported proved undeveloped reserves, including $18.8 billion for oil and gas producing activities, along with additional investments for other non-oil and gas producing activities such as t"
+        },
+        {
+          "chunk_id": "ea6dbf71d87af190",
+          "ticker": "XOM",
+          "company": "EXXON MOBIL CORP",
+          "fiscal_year": 2025,
+          "item": "2",
+          "item_title": "Properties",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm",
+          "snippet": "ITEM 2. PROPERTIES\nInformation with regard to oil and gas producing activities follows:\n1. Disclosure of Reserves\nA. Summary of Oil and Gas Reserves at Year-End 2025\nThe table below summarizes the oil-equivalent proved reserves in each geographic area and by product type for consolidated subsidiarie"
+        }
+      ],
+      "numeric_grounded": true,
+      "ungrounded_figures": [],
+      "tool_calls": [
+        {
+          "tool": "list_indexed_companies",
+          "input": {},
+          "chars": 698
+        },
+        {
+          "tool": "resolve_company",
+          "input": {
+            "query": "Exxon Mobil"
+          },
+          "chars": 2
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "proved reserves oil-equivalent barrels total year-end",
+            "ticker": "XOM",
+            "item": "1",
+            "k": 8
+          },
+          "chars": 4384
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "changes in proved reserves revisions extensions discoveries additions",
+            "ticker": "XOM",
+            "k": 8
+          },
+          "chars": 10771
+        },
+        {
+          "tool": "expand_chunk",
+          "input": {
+            "chunk_id": "c:dd8dc25a4bd7240f"
+          },
+          "chars": 12
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "total proved reserves at December 31, 2025 oil-equivalent barrels",
+            "ticker": "XOM",
+            "mode": "bm25",
+            "k": 8
+          },
+          "chars": 11253
+        },
+        {
+          "tool": "expand_chunk",
+          "input": {
+            "chunk_id": "c:ea6dbf71d87af190"
+          },
+          "chars": 12
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "proved undeveloped reserves changes during 2025 transferred to developed",
+            "ticker": "XOM",
+            "item": "2",
+            "k": 6
+          },
+          "chars": 8783
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "Total Undeveloped Total Proved Reserves oil-equivalent 19,311",
+            "ticker": "XOM",
+            "item": "2",
+            "mode": "bm25",
+            "k": 6
+          },
+          "chars": 8582
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "proved undeveloped reserves at year-end 2025 decreased increased transfers to proved developed",
+            "ticker": "XOM",
+            "k": 6
+          },
+          "chars": 8792
+        }
+      ],
+      "usage": {
+        "input_tokens": 66377,
+        "output_tokens": 2791
+      },
+      "seconds": 47.8,
+      "judge": {
+        "claims": [
+          {
+            "claim": "Year-end 2025 total proved reserves of 19,311 million oil-equivalent barrels, down from 19,949 million at year-end 2024 and up from 16,928 million at year-end 2023",
+            "supported": true,
+            "cited_ids": [
+              "854499eb1b02e39d",
+              "cad80f83ddd2dd9b"
+            ],
+            "note": "cad80f83 lists totals 16,928 (2023), 19,949 (2024); 854499eb and cad80f83 give 19,311 (2025)."
+          },
+          {
+            "claim": "Composition at Dec 31, 2025: 8,187 million bbls crude oil, 2,437 NGL, 2,330 bitumen, 288 synthetic oil, 36,408 bcf natural gas, converted at 6 bcf per million barrels",
+            "supported": true,
+            "cited_ids": [
+              "654bf2ca6de4feea"
+            ],
+            "note": "654bf2ca line 'Total Proved Reserves 8,187 2,437 2,330 288 36,408 19,311' matches; the 6 bcf conversion basis is stated in other cited chunks (854499eb, ea6dbf71)."
+          },
+          {
+            "claim": "Of the 19,311 MOEB, 12,304 developed and 7,007 undeveloped; consolidated subsidiaries 10,722 developed and 5,860 undeveloped; equity companies 1,582 and 1,147",
+            "supported": true,
+            "cited_ids": [
+              "654bf2ca6de4feea",
+              "854499eb1b02e39d"
+            ],
+            "note": "All figures appear verbatim (Total Developed 12,304; Total Undeveloped 7,007; consolidated 10,722/5,860; equity 1,582/1,147)."
+          },
+          {
+            "claim": "Quoted management explanation of 2025 vs 2024 changes: production 1.8 GOEB, asset sales 0.1 GOEB, downward revisions 0.9 GOEB, additions 2.1 GOEB extensions/discoveries and 0.1 GOEB acquisitions",
+            "supported": true,
+            "cited_ids": [
+              "dd8dc25a4bd7240f"
+            ],
+            "note": "Direct verbatim quote from cited chunk."
+          },
+          {
+            "claim": "Consolidated subsidiaries roll-forward: Jan 1, 2025 16,955; revisions (929); purchases 118; sales (132); extensions/discoveries 2,048; production (1,478); ending 16,582",
+            "supported": true,
+            "cited_ids": [
+              "0f45abb94af84f67"
+            ],
+            "note": "All values match the oil-equivalent column in the cited roll-forward."
+          },
+          {
+            "claim": "Equity-company proportional interests went from 2,994 to 2,729, with revisions 23, sales (4), production (284)",
+            "supported": true,
+            "cited_ids": [
+              "0f45abb94af84f67"
+            ],
+            "note": "Matches cited chunk exactly."
+          },
+          {
+            "claim": "Total liquids proved reserves were 13,242 million barrels at year-end 2025 versus 13,691 million at year-end 2024",
+            "supported": true,
+            "cited_ids": [
+              "f704fc432363c0a7",
+              "df2f49f4c88f7080"
+            ],
+            "note": "f704fc shows 13,242 for 2025; df2f49 shows 13,691 for 2024."
+          },
+          {
+            "claim": "2024 vs 2023 change driven by purchases of 4,044 bcf gas / 2,281 MOEB, extensions/discoveries 2,754 bcf / 1,915 MOEB, against production 2,207 bcf / 1,355 MOEB",
+            "supported": true,
+            "cited_ids": [
+              "45cb34294984d495",
+              "8777db05b24c15b1"
+            ],
+            "note": "Figures appear in the consolidated-subsidiaries 2024 roll-forward in cited chunks; answer's framing as drivers is consistent."
+          },
+          {
+            "claim": "Invested $19.0 billion during 2025 to progress development of reported proved undeveloped reserves, including $18.8 billion for oil and gas producing activities",
+            "supported": true,
+            "cited_ids": [
+              "3b6d844645231080"
+            ],
+            "note": "Verbatim in cited chunk."
+          },
+          {
+            "claim": "No major discovery or adverse event has occurred since December 31, 2025 that would significantly change the estimates",
+            "supported": true,
+            "cited_ids": [
+              "ea6dbf71d87af190"
+            ],
+            "note": "Verbatim in cited chunk."
+          }
+        ],
+        "answer_supported_fraction": 1.0,
+        "hallucinated_numbers": [],
+        "verdict": "grounded"
+      }
+    },
+    {
+      "question": "Which of the indexed companies discuss dependence on a small number of suppliers as a risk factor?",
+      "answer": "Four of the eight indexed companies frame supplier concentration explicitly as a risk \u2014 Apple, Tesla, NVIDIA and Microsoft \u2014 while Johnson & Johnson and Walmart discuss supplier risk more generally, and Exxon Mobil and JPMorgan do not raise it in this form.\n\nApple is the most explicit: \"Because the Company currently obtains certain components from single or limited sources, the Company is subject to significant supply and pricing risks,\" and \"the Company's new products often utilize custom components available from only one source\" [c:c7a2435799380f11]. It also \"relies on single-source partners in the U.S., Asia and Europe to supply and manufacture many components, and on partners primarily located in Asia, for final assembly of substantially all of the Company's hardware products\" [c:008ea9d9d001acd9], repeats the point in Item 1 [c:e49d452d4b8235e8], and carries a financial-statement note headed \"Concentrations in the Available Sources of Supply of Materials and Product\" [c:00bd62910c072d05]. Related concentration also shows in receivables: vendor non-trade receivables \"were concentrated among a few individual vendors\" [c:5836afaecfdedfcd].\n\nTesla cites parts \"purchased globally from hundreds of suppliers, including single-source direct suppliers, which exposes us to multiple potential sources of component shortages,\" noting \"the unavailability of any component or supplier could result in production delays\" [c:53690daf5c43aa1a]. Item 1 confirms \"some of our procured components and systems are sourced from single suppliers\" [c:e7190c31b4b03b2c], and the notes carry a \"Supply Risk\" concentration disclosure: \"We are dependent on our suppliers, including single source suppliers\u2026\" [c:0797f04a8dd3ac90]. Tesla also flags raw-material dependence for battery cells (lithium, nickel) [c:b81f7394f63b69bd].\n\nMicrosoft states \"There are limited suppliers for certain critical device and datacenter components, and those items are in short supply,\" including shortages of semiconductors, networking equipment, power systems and cooling equipment, with multi-year lead times to expand capacity [c:4fc964a472046053].\n\nNVIDIA's risk factor is titled \"Dependency on third-party suppliers and their technology to manufacture, assemble, test, or package our products,\" noting it depends on foundries for wafers and independent subcontractors for assembly/test/packaging, with risks including \"lack of guaranteed supply of components and capacity\" and \"decommitment by our suppliers\" [c:89fdfe3f99e8ae49], plus prioritization of competitors' orders and non-cancellable/prepaid supply commitments [c:e49655ba65fda342]. Item 1 names the concentrated set of key suppliers (TSMC and Samsung for wafers; SK Hynix, Micron and Samsung for memory; Hon Hai, Wistron, Fabrinet for assembly) and says the supply chain \"is mainly concentrated in Asia,\" with efforts to \"build redundancy and resilience\" [c:4e0a0424a48ddf7a].\n\nJohnson & Johnson discusses reliance on third-party manufacturers and suppliers as a risk \u2014 \"Any failure by or loss of a third-party manufacturer or supplier could result in delays and increased costs\" [c:fc201135f1326d1a] \u2014 but describes sourcing \"from thousands of suppliers around the world\" [c:625ced633dae43e1] and states in Item 1 that raw materials \"are generally readily available from multiple sources,\" with exceptions unlikely to be material [c:ab6ef1ec41fb151c]. Walmart similarly devotes a risk factor to suppliers but stresses breadth rather than concentration: products \"are sourced from a wide variety of domestic and international suppliers\" [c:59cf64a744a1b4de], with risks such as supplier financial instability, labor problems and transport disruption [c:24f7de25c6268314].\n\nFor Exxon Mobil, searches of Item 1A surfaced only cost/availability of third-party equipment and services (e.g., drilling rigs, shipping) and supply chain disruptions in project management, not supplier-count dependence [c:8bb80b2c98bcae38]. JPMorgan's analogous disclosure is dependence on third-party operational systems and vendors (custodians, technology/data/cloud providers, clearing and payment systems), where \"inaccessibility, failure or other disruption\" could hurt the firm [c:db1994f6f69328d6] \u2014 a vendor-reliance rather than a small-number-of-suppliers risk.",
+      "citations": [
+        {
+          "chunk_id": "c7a2435799380f11",
+          "ticker": "AAPL",
+          "company": "Apple Inc.",
+          "fiscal_year": 2025,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "snippet": "Changes or additions to the Company\u2019s supply chain require considerable time and resources and involve significant risks and uncertainties, including exposure to additional regulatory and operational risks.\nFuture operating results depend upon the Company\u2019s ability to obtain components in sufficient"
+        },
+        {
+          "chunk_id": "008ea9d9d001acd9",
+          "ticker": "AAPL",
+          "company": "Apple Inc.",
+          "fiscal_year": 2025,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "snippet": "The Company depends on component and product manufacturing and logistical services provided by outsourcing partners, many of which are located outside of the U.S.\nA significant majority of the Company\u2019s manufacturing is performed in whole or in part by outsourcing partners located primarily in China"
+        },
+        {
+          "chunk_id": "e49d452d4b8235e8",
+          "ticker": "AAPL",
+          "company": "Apple Inc.",
+          "fiscal_year": 2025,
+          "item": "1",
+          "item_title": "Business",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "snippet": "The Company uses some custom components that are not commonly used by its competitors, and new products introduced by the Company often utilize custom components available from only one source. When a component or product uses new technologies, initial capacity constraints may exist until the suppli"
+        },
+        {
+          "chunk_id": "00bd62910c072d05",
+          "ticker": "AAPL",
+          "company": "Apple Inc.",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "snippet": "Apple Inc. | 2025 Form 10-K | 45\nNote 12 \u2013 Commitments, Contingencies and Supply Concentrations\nUnconditional Purchase Obligations\nThe Company has entered into certain off\u2013balance sheet commitments that require the future purchase of goods or services (\u201cunconditional purchase obligations\u201d). The Comp"
+        },
+        {
+          "chunk_id": "5836afaecfdedfcd",
+          "ticker": "AAPL",
+          "company": "Apple Inc.",
+          "fiscal_year": 2025,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "snippet": "The Company is exposed to credit risk on its trade accounts receivable, vendor non-trade receivables and prepayments related to long-term supply agreements, and this risk is heightened during periods when economic conditions worsen.\nThe Company distributes its products and certain of its services th"
+        },
+        {
+          "chunk_id": "53690daf5c43aa1a",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "Our products contain thousands of parts purchased globally from hundreds of suppliers, including single-source direct suppliers, which exposes us to multiple potential sources of component shortages. Unexpected changes in business conditions, materials pricing, including inflation of raw material co"
+        },
+        {
+          "chunk_id": "e7190c31b4b03b2c",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "1",
+          "item_title": "Business",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "Internationally, we also have manufacturing facilities in China and Germany, which allows us to increase the affordability of our vehicles for customers in local markets by reducing transportation and manufacturing costs and limiting the impact of unfavorable tariffs. Generally, we continue to expan"
+        },
+        {
+          "chunk_id": "0797f04a8dd3ac90",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "Concentration of Risk\nCredit Risk\nFinancial instruments that potentially subject us to a concentration of credit risk consist of cash, cash equivalents, investments, restricted cash, accounts receivable and other finance receivables. Our cash and investments balances are primarily on deposit at high"
+        },
+        {
+          "chunk_id": "b81f7394f63b69bd",
+          "ticker": "TSLA",
+          "company": "Tesla, Inc.",
+          "fiscal_year": 2025,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "snippet": "In addition, the cost and mass production of battery cells, whether manufactured by our suppliers or by us, depends in part upon the prices and availability of raw materials such as lithium, nickel and/or other metals. The prices for these materials fluctuate and their available supply may be unstab"
+        },
+        {
+          "chunk_id": "4fc964a472046053",
+          "ticker": "MSFT",
+          "company": "MICROSOFT CORP",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+          "snippet": "We may experience supply problems. There are limited suppliers for certain critical device and datacenter components, and those items are in short supply. We continue to identify and evaluate opportunities to expand our datacenter locations and increase our server capacity to meet the evolving needs"
+        },
+        {
+          "chunk_id": "89fdfe3f99e8ae49",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "Dependency on third-party suppliers and their technology to manufacture, assemble, test, or package our products reduces our control over product quantity and quality, manufacturing yields, and product delivery schedules and could harm our business.\nWe depend on foundries to manufacture our semicond"
+        },
+        {
+          "chunk_id": "e49655ba65fda342",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "17\nTable of Contents\ndelays in product shipments, shortages, a decrease in product quality and/or higher expenses in the event our subcontractors or foundries prioritize our competitors\u2019 or other customers\u2019 orders over ours;\nrequirements to place orders that are not cancellable upon changes in deman"
+        },
+        {
+          "chunk_id": "4e0a0424a48ddf7a",
+          "ticker": "NVDA",
+          "company": "NVIDIA CORP",
+          "fiscal_year": 2026,
+          "item": "1",
+          "item_title": "Business",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+          "snippet": "We have expanded our supplier relationships to build redundancy and resilience in our operations to provide long-term manufacturing capacity aligned with growing customer demand. While currently our supply chain is mainly concentrated in Asia, we are expanding into the U.S. and Latin America. We uti"
+        },
+        {
+          "chunk_id": "fc201135f1326d1a",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "The Company relies on third parties to manufacture and supply certain of our products. Any failure by or loss of a third-party manufacturer or supplier could result in delays and increased costs, which may adversely affect our business.\nThe Company relies on third parties to manufacture and supply c"
+        },
+        {
+          "chunk_id": "625ced633dae43e1",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "For the Company\u2019s Innovative Medicine businesses, loss of patent exclusivity for a product often is followed by a substantial reduction in sales as competitors gain regulatory approval for generic, biosimilar and other competing products and enter the market. For the Company\u2019s MedTech businesses, te"
+        },
+        {
+          "chunk_id": "ab6ef1ec41fb151c",
+          "ticker": "JNJ",
+          "company": "JOHNSON & JOHNSON",
+          "fiscal_year": 2025,
+          "item": "1",
+          "item_title": "Business",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+          "snippet": "In October 2025, the Company announced its intention to separate its Orthopaedics business. The Company intends to explore multiple paths to effect the planned separation with a targeted completion within 18 to 24 months after the initial announcement.\nGeographic areas\nThe Company conducts business "
+        },
+        {
+          "chunk_id": "59cf64a744a1b4de",
+          "ticker": "WMT",
+          "company": "Walmart Inc.",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "snippet": "We bear the majority of the costs associated with adaptation and the risk of losses incurred as a result of physical damage to, or destruction of, any stores, clubs, distribution or fulfillment centers and transportation vehicles and equipment; theft, loss or spoilage of inventory; and business inte"
+        },
+        {
+          "chunk_id": "24f7de25c6268314",
+          "ticker": "WMT",
+          "company": "Walmart Inc.",
+          "fiscal_year": 2026,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+          "snippet": "We are exposed to a number of risks in our relationships with our suppliers, many of which are beyond our control, and which could adversely impact our operations and financial performance. These risks include political and economic instability, as well as other impactful events and circumstances in"
+        },
+        {
+          "chunk_id": "8bb80b2c98bcae38",
+          "ticker": "XOM",
+          "company": "EXXON MOBIL CORP",
+          "fiscal_year": 2025,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm",
+          "snippet": "Project and portfolio management. The long-term success of ExxonMobil\u2019s Upstream and Product Solutions businesses, as well as the future success of LCS and other emerging investments, depends on complex, long-term, capital-intensive projects. These projects in turn require a high degree of project m"
+        },
+        {
+          "chunk_id": "db1994f6f69328d6",
+          "ticker": "JPM",
+          "company": "JPMORGAN CHASE & CO",
+          "fiscal_year": 2025,
+          "item": "1A",
+          "item_title": "Risk Factors",
+          "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+          "snippet": "weaknesses or shortcomings in operational systems that may not be detected in a timely manner\nisolated or seemingly insignificant errors in operational systems that could compound, or migrate to other systems, becoming larger issues\nfailures in synchronization or encryption software, or degraded per"
+        }
+      ],
+      "numeric_grounded": true,
+      "ungrounded_figures": [],
+      "tool_calls": [
+        {
+          "tool": "list_indexed_companies",
+          "input": {},
+          "chars": 698
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "dependence on a limited number of suppliers, single source, supplier concentration risk",
+            "item": "1A",
+            "k": 15
+          },
+          "chars": 20738
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "reliance on limited number of suppliers or vendors, third-party service providers concentration",
+            "ticker": "JPM",
+            "item": "1A",
+            "k": 6
+          },
+          "chars": 8806
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "suppliers of raw materials, equipment and services, limited number of suppliers, supply chain constraints",
+            "ticker": "XOM",
+            "item": "1A",
+            "k": 8
+          },
+          "chars": 11739
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "single source or limited number of suppliers for raw materials and components",
+            "ticker": "JNJ",
+            "k": 6
+          },
+          "chars": 8754
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "we do not have long-term supply contracts; sole source suppliers; limited suppliers for key components",
+            "ticker": "NVDA",
+            "k": 8
+          },
+          "chars": 11357
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "\"limited number of suppliers\" \"sole source\" \"single source\"",
+            "mode": "bm25",
+            "k": 12
+          },
+          "chars": 17691
+        }
+      ],
+      "usage": {
+        "input_tokens": 74149,
+        "output_tokens": 3004
+      },
+      "seconds": 52.8,
+      "judge": {
+        "claims": [
+          {
+            "claim": "Four of the eight indexed companies frame supplier concentration explicitly as a risk (Apple, Tesla, NVIDIA, Microsoft), J&J and Walmart discuss it generally, and Exxon Mobil and JPMorgan do not",
+            "supported": false,
+            "cited_ids": [],
+            "note": "Framing/count claim carries no citation; the '8 indexed companies' universe is not stated in any chunk, though the cited chunks do cover exactly these eight issuers, and the per-company characterizations are supported later."
+          },
+          {
+            "claim": "Apple: 'Because the Company currently obtains certain components from single or limited sources, the Company is subject to significant supply and pricing risks' and 'new products often utilize custom components available from only one source'",
+            "supported": true,
+            "cited_ids": [
+              "c7a2435799380f11"
+            ],
+            "note": "Both quotes appear verbatim in the AAPL Item 1A chunk."
+          },
+          {
+            "claim": "Apple relies on single-source partners in the U.S., Asia and Europe to supply and manufacture many components, and on partners primarily located in Asia for final assembly of substantially all hardware products",
+            "supported": true,
+            "cited_ids": [
+              "008ea9d9d001acd9"
+            ],
+            "note": "Verbatim in chunk."
+          },
+          {
+            "claim": "Apple repeats the single-source custom component point in Item 1",
+            "supported": true,
+            "cited_ids": [
+              "e49d452d4b8235e8"
+            ],
+            "note": "Item 1 chunk states new products 'often utilize custom components available from only one source'."
+          },
+          {
+            "claim": "Apple carries a financial-statement note headed 'Concentrations in the Available Sources of Supply of Materials and Product'",
+            "supported": true,
+            "cited_ids": [
+              "00bd62910c072d05"
+            ],
+            "note": "Heading appears verbatim in Note 12 chunk."
+          },
+          {
+            "claim": "Apple's vendor non-trade receivables 'were concentrated among a few individual vendors'",
+            "supported": true,
+            "cited_ids": [
+              "5836afaecfdedfcd"
+            ],
+            "note": "Verbatim (concentrated among a few individual vendors located primarily in Asia)."
+          },
+          {
+            "claim": "Tesla cites parts 'purchased globally from hundreds of suppliers, including single-source direct suppliers, which exposes us to multiple potential sources of component shortages' and that 'the unavailability of any component or supplier could result in production delays'",
+            "supported": true,
+            "cited_ids": [
+              "53690daf5c43aa1a"
+            ],
+            "note": "Both phrases verbatim in chunk."
+          },
+          {
+            "claim": "Tesla Item 1 confirms 'some of our procured components and systems are sourced from single suppliers'",
+            "supported": true,
+            "cited_ids": [
+              "e7190c31b4b03b2c"
+            ],
+            "note": "Verbatim in Item 1 supply chain section."
+          },
+          {
+            "claim": "Tesla's notes contain a 'Supply Risk' concentration disclosure: 'We are dependent on our suppliers, including single source suppliers\u2026'",
+            "supported": true,
+            "cited_ids": [
+              "0797f04a8dd3ac90"
+            ],
+            "note": "Verbatim in Concentration of Risk note."
+          },
+          {
+            "claim": "Tesla flags raw-material dependence for battery cells (lithium, nickel)",
+            "supported": true,
+            "cited_ids": [
+              "b81f7394f63b69bd"
+            ],
+            "note": "Chunk discusses prices/availability of raw materials such as lithium, nickel and/or other metals for battery cells."
+          },
+          {
+            "claim": "Microsoft states 'There are limited suppliers for certain critical device and datacenter components, and those items are in short supply,' including shortages of semiconductors, networking equipment, power systems and cooling equipment, with multi-year lead times to expand capacity",
+            "supported": true,
+            "cited_ids": [
+              "4fc964a472046053"
+            ],
+            "note": "All elements verbatim in chunk."
+          },
+          {
+            "claim": "NVIDIA's risk factor is titled 'Dependency on third-party suppliers and their technology to manufacture, assemble, test, or package our products'; depends on foundries for wafers and independent subcontractors for assembly/test/packaging; risks include 'lack of guaranteed supply of components and capacity' and 'decommitment by our suppliers'",
+            "supported": true,
+            "cited_ids": [
+              "89fdfe3f99e8ae49"
+            ],
+            "note": "All verbatim in chunk."
+          },
+          {
+            "claim": "NVIDIA also cites prioritization of competitors' orders and non-cancellable/prepaid supply commitments",
+            "supported": true,
+            "cited_ids": [
+              "e49655ba65fda342"
+            ],
+            "note": "Chunk lists prioritizing competitors' orders and non-cancellable orders/prepayment requirements."
+          },
+          {
+            "claim": "NVIDIA Item 1 names key suppliers (TSMC and Samsung for wafers; SK Hynix, Micron and Samsung for memory; Hon Hai, Wistron, Fabrinet for assembly), says supply chain 'is mainly concentrated in Asia,' and describes efforts to 'build redundancy and resilience'",
+            "supported": true,
+            "cited_ids": [
+              "4e0a0424a48ddf7a"
+            ],
+            "note": "All named suppliers and quotes present in chunk."
+          },
+          {
+            "claim": "J&J: 'Any failure by or loss of a third-party manufacturer or supplier could result in delays and increased costs'",
+            "supported": true,
+            "cited_ids": [
+              "fc201135f1326d1a"
+            ],
+            "note": "Verbatim risk-factor heading."
+          },
+          {
+            "claim": "J&J describes sourcing 'from thousands of suppliers around the world'",
+            "supported": true,
+            "cited_ids": [
+              "625ced633dae43e1"
+            ],
+            "note": "Verbatim in chunk."
+          },
+          {
+            "claim": "J&J Item 1 states raw materials 'are generally readily available from multiple sources,' with exceptions unlikely to be material",
+            "supported": true,
+            "cited_ids": [
+              "ab6ef1ec41fb151c"
+            ],
+            "note": "Verbatim in Item 1 raw materials section."
+          },
+          {
+            "claim": "Walmart devotes a risk factor to suppliers, stating products 'are sourced from a wide variety of domestic and international suppliers'",
+            "supported": true,
+            "cited_ids": [
+              "59cf64a744a1b4de"
+            ],
+            "note": "Risk factor heading and quote present."
+          },
+          {
+            "claim": "Walmart supplier risks include supplier financial instability, labor problems and transport disruption",
+            "supported": true,
+            "cited_ids": [
+              "24f7de25c6268314"
+            ],
+            "note": "All three listed in chunk."
+          },
+          {
+            "claim": "Exxon Mobil's Item 1A surfaced only cost/availability of third-party equipment and services (drilling rigs, shipping) and supply chain disruptions in project management, not supplier-count dependence",
+            "supported": true,
+            "cited_ids": [
+              "8bb80b2c98bcae38"
+            ],
+            "note": "Chunk mentions costs of third-party equipment or services such as drilling rigs and shipping and supply chain disruptions; no supplier-concentration language, consistent with the negative statement for the cited excerpt."
+          },
+          {
+            "claim": "JPMorgan's analogous disclosure is dependence on third-party operational systems and vendors (custodians, technology/data/cloud providers, clearing and payment systems), where 'inaccessibility, failure or other disruption' could hurt the firm",
+            "supported": true,
+            "cited_ids": [
+              "db1994f6f69328d6"
+            ],
+            "note": "Verbatim list and quote in chunk."
+          }
+        ],
+        "answer_supported_fraction": 0.95,
+        "hallucinated_numbers": [],
+        "verdict": "grounded"
+      }
+    },
+    {
+      "question": "Does Apple disclose the size of its remaining share repurchase authorization? Quote the figure.",
+      "answer": "Yes. In Item 5 of its FY2025 Form 10-K, Apple's issuer-purchases table discloses the \"Approximate Dollar Value of Shares That May Yet Be Purchased Under the Plans or Programs\" as **$99,779** million (the table is presented \"in millions, except number of shares\u2026 and per-share amounts\") as of the end of the quarter ended September 27, 2025 [c:24e2768b42c16c5e].\n\nContext from the same footnote: \"On May 2, 2024, the Company announced a program to repurchase up to $110 billion of the Company's common stock. During the fourth quarter of 2025, the Company utilized the final $19.8 billion under the May 2024 program. On May 1, 2025, the Company announced an additional \u2026\" (the footnote text is truncated in the retrieved chunk) [c:24e2768b42c16c5e]. MD&A confirms the new authorization size: \"In May 2025, the Company announced a new share repurchase program of up to $100 billion and raised its quarterly dividend from $0.25 to $0.26 per share beginning in May 2025. During 2025, the Company repurchased $89.3 billion of its common stock\" [c:2ae7655a71502869]. The equity note adds that \"During 2025, the Company repurchased 402 million shares of its common stock for $89.3 billion. The Company's share repurchase programs do not o\u2026\" [c:61b281c010d3437a].",
+      "citations": [
+        {
+          "chunk_id": "24e2768b42c16c5e",
+          "ticker": "AAPL",
+          "company": "Apple Inc.",
+          "fiscal_year": 2025,
+          "item": "5",
+          "item_title": "Market for Registrant",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "snippet": "Item 5. Market for Registrant\u2019s Common Equity, Related Stockholder Matters and Issuer Purchases of Equity Securities\nThe Company\u2019s common stock is traded on The Nasdaq Stock Market LLC under the symbol AAPL.\nHolders\nAs of October 17, 2025, there were 22,429 shareholders of record.\nPurchases of Equit"
+        },
+        {
+          "chunk_id": "2ae7655a71502869",
+          "ticker": "AAPL",
+          "company": "Apple Inc.",
+          "fiscal_year": 2025,
+          "item": "7",
+          "item_title": "Management's Discussion and Analysis",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "snippet": "Deemed Repatriation Tax Payable\nAs of September 27, 2025, the balance of the deemed repatriation tax payable imposed by the U.S. Tax Cuts and Jobs Act of 2017 (\u201cTCJA\u201d) was $8.8 billion, which was payable within 12 months.\nApple Inc. | 2025 Form 10-K | 25\nCapital Return Program\nIn addition to its con"
+        },
+        {
+          "chunk_id": "61b281c010d3437a",
+          "ticker": "AAPL",
+          "company": "Apple Inc.",
+          "fiscal_year": 2025,
+          "item": "8",
+          "item_title": "Financial Statements and Supplementary Data",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "snippet": "Hedge accounting fair value adjustments ( 294 ) ( 358 )\nTotal term debt\n90,678 96,662\nLess: Current portion of term debt ( 12,350 ) ( 10,912 )\nTotal non-current portion of term debt $ 78,328 $ 85,750\nTo manage interest rate risk on certain of its U.S. dollar\u2013denominated fixed-rate notes, the Company"
+        }
+      ],
+      "numeric_grounded": true,
+      "ungrounded_figures": [],
+      "tool_calls": [
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "share repurchase program authorization remaining amount",
+            "ticker": "AAPL",
+            "item": "5"
+          },
+          "chars": 2451
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "common stock repurchase program authorized Board of Directors increase",
+            "ticker": "AAPL"
+          },
+          "chars": 8930
+        },
+        {
+          "tool": "expand_chunk",
+          "input": {
+            "chunk_id": "c:24e2768b42c16c5e"
+          },
+          "chars": 12
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "On May 1, 2025, the Company announced an additional program to repurchase up to $100 billion remaining available",
+            "ticker": "AAPL",
+            "mode": "bm25",
+            "k": 6
+          },
+          "chars": 8923
+        },
+        {
+          "tool": "expand_chunk",
+          "input": {
+            "chunk_id": "c:61b281c010d3437a"
+          },
+          "chars": 12
+        },
+        {
+          "tool": "search_filings",
+          "input": {
+            "query": "Note 10 Shareholders' Equity share repurchase programs do not obligate the Company to acquire any specific number of shares",
+            "ticker": "AAPL",
+            "item": "8",
+            "k": 8
+          },
+          "chars": 11928
+        }
+      ],
+      "usage": {
+        "input_tokens": 49964,
+        "output_tokens": 1438
+      },
+      "seconds": 31.5,
+      "judge": {
+        "claims": [
+          {
+            "claim": "Apple's FY2025 Form 10-K Item 5 issuer-purchases table discloses \"Approximate Dollar Value of Shares That May Yet Be Purchased Under the Plans or Programs\" of $99,779 million.",
+            "supported": true,
+            "cited_ids": [
+              "24e2768b42c16c5e"
+            ],
+            "note": "Table row 'Total 89,498 $ 99,779' under that exact column heading; units stated as millions."
+          },
+          {
+            "claim": "The table is presented \"in millions, except number of shares\u2026 and per-share amounts.\"",
+            "supported": true,
+            "cited_ids": [
+              "24e2768b42c16c5e"
+            ],
+            "note": "Chunk states '(in millions, except number of shares, which are reflected in thousands, and per-share amounts)'."
+          },
+          {
+            "claim": "The figure is as of the end of the quarter ended September 27, 2025.",
+            "supported": true,
+            "cited_ids": [
+              "24e2768b42c16c5e"
+            ],
+            "note": "Chunk covers 'three months ended September 27, 2025' with final period ending September 27, 2025; footnote references 'As of September 27, 2025'."
+          },
+          {
+            "claim": "Footnote: On May 2, 2024, Apple announced a program to repurchase up to $110 billion; during Q4 2025 it utilized the final $19.8 billion under the May 2024 program; on May 1, 2025 it announced an additional program.",
+            "supported": true,
+            "cited_ids": [
+              "24e2768b42c16c5e"
+            ],
+            "note": "Verbatim from footnote (1)."
+          },
+          {
+            "claim": "The footnote text is truncated in the retrieved chunk.",
+            "supported": false,
+            "cited_ids": [
+              "24e2768b42c16c5e"
+            ],
+            "note": "The cited chunk contains the complete footnote, including that the May 2025 program is up to $100 billion and $221 million had been utilized as of September 27, 2025; the 'truncated' characterization is inaccurate."
+          },
+          {
+            "claim": "MD&A states that in May 2025 Apple announced a new share repurchase program of up to $100 billion and raised its quarterly dividend from $0.25 to $0.26 per share beginning in May 2025, and that during 2025 it repurchased $89.3 billion of its common stock.",
+            "supported": true,
+            "cited_ids": [
+              "2ae7655a71502869"
+            ],
+            "note": "Verbatim quote present in Item 7 chunk."
+          },
+          {
+            "claim": "The equity note states that during 2025 Apple repurchased 402 million shares of its common stock for $89.3 billion and that its share repurchase programs do not obligate it to acquire a minimum amount of shares.",
+            "supported": true,
+            "cited_ids": [
+              "61b281c010d3437a"
+            ],
+            "note": "Verbatim from Note 10 \u2013 Shareholders' Equity."
+          }
+        ],
+        "answer_supported_fraction": 0.86,
+        "hallucinated_numbers": [],
+        "verdict": "grounded"
+      }
+    }
+  ]
+}
